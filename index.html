@@ -11,7 +11,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <style>
   *{box-sizing:border-box;}
-  body{margin:0;background:#101a2e;color:#fff;font-family:'Segoe UI',sans-serif;padding-bottom:100px;}
+  body{margin:0;background:#101a2e;color:#fff;font-family:'Segoe UI',sans-serif;}
   
   /* LOGIN */
   .login-container{display:flex;justify-content:center;align-items:center;min-height:100vh;background:#101a2e;}
@@ -24,21 +24,12 @@
   #mainApp{display:none;padding:20px;max-width:1200px;margin:0 auto;}
   
   /* HEADER */
-  .header{display:flex;justify-content:space-between;align-items:center;background:#1a1a2e;padding:16px 24px;border-radius:8px;border:1px solid #a855f7;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+  .header{display:flex;justify-content:space-between;align-items:center;background:#1a1a2e;padding:16px 24px;border-radius:8px;border:1px solid #a855f7;margin-bottom:20px;}
   .header h1{color:#a855f7;font-size:24px;margin:0;}
   .header .user-info{display:flex;align-items:center;gap:12px;}
   .header .user-info span{font-size:14px;color:#aaa;}
   .header .user-info button{background:#a855f7;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;font-size:13px;}
   .header .user-info button:hover{opacity:0.8;}
-  
-  /* NAVIGACIJA */
-  .nav-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
-  .nav-bar button{background:#1a1a2e;border:1px solid #a855f7;color:#888;padding:10px 18px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;transition:all 0.2s;}
-  .nav-bar button.active{background:#a855f7;color:#fff;}
-  .nav-bar button:hover{opacity:0.8;}
-  
-  .tab-panel{display:none;}
-  .tab-panel.active{display:block;}
   
   /* DASHBOARD DROPDOWN */
   .dashboard-dropdown{background:#1a1a2e;border:1px solid #a855f7;border-radius:8px;margin-bottom:20px;overflow:hidden;}
@@ -78,54 +69,13 @@
   .upcoming-dot{width:8px;height:8px;border-radius:50%;background:#a855f7;}
   .upcoming-title{font-size:13px;color:#fff;}
   
-  /* GEAR - 2 KOLONE */
-  .gear-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
-  @media(max-width:700px){.gear-grid{grid-template-columns:1fr;}}
+  .nav-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+  .nav-bar button{background:#1a1a2e;border:1px solid #a855f7;color:#888;padding:10px 18px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;}
+  .nav-bar button.active{background:#a855f7;color:#fff;}
+  .nav-bar button:hover{opacity:0.8;}
   
-  .gear-card{background:#121a2f;border:1px solid #a855f7;border-radius:6px;padding:16px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
-  .gear-card .gear-name{color:#fff;font-size:15px;font-weight:600;}
-  .gear-card .gear-type{color:#a855f7;font-size:11px;}
-  .gear-card .gear-specs{color:#888;font-size:12px;margin-top:2px;}
-  .gear-card .del-btn{background:none;border:none;color:#666;cursor:pointer;font-size:16px;}
-  .gear-card .del-btn:hover{color:#dc2626;}
-  
-  .gear-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;}
-  .gear-header h2{color:#a855f7;margin:0;}
-  .gear-header button{background:#a855f7;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;}
-  .gear-header button:hover{opacity:0.8;}
-  
-  /* CHECKLIST */
-  .checklist-item{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid #2a2a4a;}
-  .checklist-item input[type=checkbox]{accent-color:#a855f7;width:16px;height:16px;}
-  .checklist-item label{color:#ddd;font-size:13px;}
-  .checklist-item .checked{text-decoration:line-through;color:#666;}
-  
-  /* PROJECTS */
-  .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
-  .project-card{background:#121a2f;border:1px solid #a855f7;border-radius:6px;padding:16px;cursor:pointer;transition:transform 0.15s;}
-  .project-card:hover{transform:translateY(-2px);}
-  .project-card h3{color:#fff;margin:0 0 6px 0;font-size:16px;}
-  .project-card .loc{color:#888;font-size:13px;margin:0 0 4px 0;}
-  .project-card .date{color:#666;font-size:12px;margin:0;}
-  .project-card .actions{display:flex;gap:6px;margin-top:10px;}
-  .project-card .actions button{background:transparent;border:1px solid #dc2626;color:#dc2626;padding:4px 12px;border-radius:4px;cursor:pointer;font-size:12px;}
-  .project-card .actions button:hover{background:#dc2626;color:#fff;}
-  
-  /* MODAL */
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:100;justify-content:center;align-items:center;padding:20px;}
-  .modal-overlay.active{display:flex;}
-  .modal-box{background:#1a1a2e;border:1px solid #a855f7;border-radius:8px;padding:24px;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;}
-  .modal-box h2{color:#a855f7;margin-top:0;}
-  .modal-box input,.modal-box textarea,.modal-box select{width:100%;padding:10px;margin-bottom:12px;border-radius:4px;border:1px solid #333;background:#121a2f;color:#fff;font-size:14px;}
-  .modal-box input:focus,.modal-box textarea:focus,.modal-box select:focus{outline:none;border-color:#a855f7;}
-  .modal-box textarea{min-height:80px;resize:vertical;}
-  .modal-actions{display:flex;gap:8px;margin-top:16px;}
-  .modal-actions .btn-cancel{flex:1;background:#333;color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;}
-  .modal-actions .btn-cancel:hover{background:#444;}
-  .modal-actions .btn-save{flex:2;background:#a855f7;color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;font-weight:600;}
-  .modal-actions .btn-save:hover{opacity:0.8;}
-  .modal-actions .btn-danger{background:transparent;border:1px solid #dc2626;color:#dc2626;padding:10px 14px;border-radius:4px;cursor:pointer;font-weight:600;}
-  .modal-actions .btn-danger:hover{background:#dc2626;color:#fff;}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
   
   .bottom-bar{position:fixed;bottom:40px;left:0;right:0;display:flex;justify-content:center;z-index:40;}
   .bottom-bar button{background:#a855f7;color:#fff;border:none;padding:12px 28px;border-radius:6px;font-size:15px;font-weight:700;cursor:pointer;}
@@ -135,9 +85,6 @@
   .footer-legal a{color:#a855f7;text-decoration:none;}
   
   .loading{text-align:center;padding:40px;color:#888;}
-  
-  /* NOTIFIKACIJA 2/10 */
-  .notification-banner{background:#fff3cd;border-left:6px solid #ffc107;color:#856404;padding:12px 16px;border-radius:6px;margin-bottom:16px;font-size:14px;grid-column:1/-1;}
 </style>
 </head>
 <body>
@@ -164,21 +111,19 @@
 
   <!-- NAVIGACIJA -->
   <div class="nav-bar">
-    <button class="active" data-tab="dashboard" onclick="switchTab('dashboard')">📊 Dashboard</button>
-    <button data-tab="projects" onclick="switchTab('projects')">📂 Projects</button>
-    <button data-tab="gear" onclick="switchTab('gear')">📦 Gear</button>
+    <button class="active" onclick="switchTab('dashboard')">Dashboard</button>
+    <button onclick="switchTab('projects')">Projects</button>
+    <button onclick="switchTab('gear')">Gear</button>
   </div>
 
   <!-- ===== DASHBOARD PANEL ===== -->
   <div class="tab-panel active" id="panel-dashboard">
     <div class="dashboard-dropdown">
       <div class="dash-header" onclick="toggleDashboard()">
-        <h2>Dashboard <span class="badge" id="dashBadge">0</span></h2>
-        <span class="arrow open" id="dashArrow">▼</span>
+        <h2>📊 Dashboard <span class="badge" id="dashBadge">0</span></h2>
+        <span class="arrow" id="dashArrow">▼</span>
       </div>
       <div class="dash-body open" id="dashBody">
-        <!-- NOTIFIKACIJA 2/10 -->
-        <div id="notificationContainer"></div>
         <div class="dash-grid" id="dashStats"></div>
         <div class="dash-row">
           <div class="dash-wide"><h4>BY CATEGORY</h4><div id="dashCategories"></div></div>
@@ -194,37 +139,17 @@
 
   <!-- ===== PROJECTS PANEL ===== -->
   <div class="tab-panel" id="panel-projects">
-    <div class="gear-header">
-      <h2>📂 Projects</h2>
-      <button onclick="openProjectModal()">+ New Project</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
+      <h2 style="color:#a855f7;margin:0;">📂 Projects</h2>
+      <button onclick="openProjectModal()" style="background:#a855f7;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;">+ New Project</button>
     </div>
-    <div class="projects-grid" id="projectList"></div>
+    <div id="projectList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;"></div>
   </div>
 
   <!-- ===== GEAR PANEL ===== -->
   <div class="tab-panel" id="panel-gear">
-    <div class="gear-header">
-      <h2>📦 Equipment Inventory</h2>
-      <button onclick="openGearModal()">+ Add Equipment</button>
-    </div>
-    
-    <!-- Statistika -->
-    <div class="dash-grid" id="gearStats"></div>
-    
-    <!-- Grid opreme - 2 kolone -->
-    <div class="gear-grid" id="gearGrid"></div>
-    
-    <!-- Checklista -->
-    <div style="margin-top:20px;background:#121a2f;border:1px solid #a855f7;border-radius:6px;padding:16px;">
-      <h4 style="color:#a855f7;margin:0 0 12px 0;">✅ Checklist — Field Gear</h4>
-      <div id="checklistContainer"></div>
-      <div class="checklist-summary" id="checklistSummary" style="font-size:12px;color:#888;margin-top:8px;"></div>
-      <div style="display:flex;gap:8px;margin-top:10px;">
-        <button onclick="checkAllGear()" style="background:#1a1a2e;border:1px solid #a855f7;color:#fff;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:12px;">✅ Check All</button>
-        <button onclick="uncheckAllGear()" style="background:#1a1a2e;border:1px solid #a855f7;color:#fff;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:12px;">⬜ Uncheck All</button>
-        <button onclick="printChecklist()" style="background:#a855f7;color:#fff;border:none;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:12px;">🖨️ Print</button>
-      </div>
-    </div>
+    <h2 style="color:#a855f7;">📦 Gear</h2>
+    <p style="color:#888;">Gear management coming soon...</p>
   </div>
 </div>
 
@@ -239,63 +164,16 @@
 </div>
 
 <!-- ===== PROJECT MODAL ===== -->
-<div class="modal-overlay" id="projectModal">
-  <div class="modal-box">
-    <h2 id="modalTitle">New Project</h2>
-    <input type="text" id="fTitle" placeholder="Title *">
-    <input type="text" id="fLocation" placeholder="Location *">
-    <input type="date" id="fDue">
-    <textarea id="fNotes" placeholder="Notes"></textarea>
-    <div class="modal-actions">
-      <button class="btn-cancel" onclick="closeProjectModal()">Cancel</button>
-      <button class="btn-save" onclick="saveProject()">Save</button>
-    </div>
-  </div>
-</div>
-
-<!-- ===== GEAR MODAL ===== -->
-<div class="modal-overlay" id="gearModal">
-  <div class="modal-box">
-    <h2>New Equipment</h2>
-    <select id="gType">
-      <option value="body">Body</option>
-      <option value="lens">Lens</option>
-      <option value="lighting">Lighting</option>
-      <option value="audio">Audio</option>
-      <option value="support">Support</option>
-      <option value="storage">Storage</option>
-      <option value="accessories">Accessories</option>
-      <option value="drone">Drone</option>
-      <option value="other">Other</option>
-    </select>
-    <input type="text" id="gName" placeholder="Name * (e.g. Nikon Z6III)">
-    <input type="text" id="gSpecs" placeholder="Specs (e.g. 180-600mm)">
-    <input type="text" id="gBrand" placeholder="Brand (e.g. Nikon)">
-    <input type="text" id="gSerial" placeholder="Serial Number">
-    <input type="text" id="gLocation" placeholder="Location (e.g. Studio 1)">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
-      <input type="date" id="gPurchase" placeholder="Purchase Date">
-      <input type="number" id="gPrice" placeholder="Price" step="0.01">
-    </div>
-    <select id="gStatus">
-      <option value="available">Available</option>
-      <option value="in_use">In Use</option>
-      <option value="in_repair">In Repair</option>
-      <option value="broken">Broken</option>
-      <option value="lost">Lost</option>
-    </select>
-    <div style="display:flex;gap:6px;margin-bottom:12px;">
-      <span style="color:#888;font-size:12px;">Condition:</span>
-      <button onclick="setCondition(1)" id="cond1" style="background:transparent;border:1px solid #333;color:#888;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:12px;">⭐</button>
-      <button onclick="setCondition(2)" id="cond2" style="background:transparent;border:1px solid #333;color:#888;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:12px;">⭐⭐</button>
-      <button onclick="setCondition(3)" id="cond3" style="background:transparent;border:1px solid #333;color:#888;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:12px;">⭐⭐⭐</button>
-      <button onclick="setCondition(4)" id="cond4" style="background:transparent;border:1px solid #333;color:#888;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:12px;">⭐⭐⭐⭐</button>
-      <button onclick="setCondition(5)" id="cond5" style="background:#a855f7;border:1px solid #a855f7;color:#fff;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:12px;">⭐⭐⭐⭐⭐</button>
-    </div>
-    <input type="text" id="gNote" placeholder="Note">
-    <div class="modal-actions">
-      <button class="btn-cancel" onclick="closeGearModal()">Cancel</button>
-      <button class="btn-save" onclick="saveGear()">Save</button>
+<div id="projectModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:100;display:none;justify-content:center;align-items:center;padding:20px;">
+  <div style="background:#1a1a2e;border:1px solid #a855f7;border-radius:8px;padding:24px;max-width:500px;width:100%;">
+    <h2 style="color:#a855f7;margin-top:0;" id="modalTitle">New Project</h2>
+    <input type="text" id="fTitle" placeholder="Title *" style="width:100%;padding:10px;margin-bottom:12px;border-radius:4px;border:1px solid #333;background:#121a2f;color:#fff;">
+    <input type="text" id="fLocation" placeholder="Location *" style="width:100%;padding:10px;margin-bottom:12px;border-radius:4px;border:1px solid #333;background:#121a2f;color:#fff;">
+    <input type="date" id="fDue" style="width:100%;padding:10px;margin-bottom:12px;border-radius:4px;border:1px solid #333;background:#121a2f;color:#fff;">
+    <textarea id="fNotes" placeholder="Notes" style="width:100%;padding:10px;border-radius:4px;border:1px solid #333;background:#121a2f;color:#fff;min-height:80px;resize:vertical;"></textarea>
+    <div style="display:flex;gap:8px;margin-top:16px;">
+      <button onclick="closeProjectModal()" style="flex:1;background:#333;color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;">Cancel</button>
+      <button onclick="saveProject()" style="flex:2;background:#a855f7;color:#fff;border:none;padding:10px;border-radius:4px;cursor:pointer;font-weight:600;">Save</button>
     </div>
   </div>
 </div>
@@ -316,13 +194,9 @@ const db = firebase.firestore();
 
 // ============ DATA ============
 let items = [];
-let gear = [];
-let gearCheckState = {};
 let currentUser = null;
 let editingId = null;
-let editingGearId = null;
 let dashboardOpen = true;
-let selectedCondition = 5;
 
 // ============ AUTH ============
 function signInWithGoogle() {
@@ -334,22 +208,20 @@ function signOut() {
   auth.signOut();
 }
 
-auth.onAuthStateChanged(async user => {
+auth.onAuthStateChanged(user => {
   currentUser = user;
   if (user) {
     document.getElementById('loginScreen').style.display = 'none';
     document.getElementById('mainApp').style.display = 'block';
     document.getElementById('userName').textContent = user.displayName || user.email;
-    await loadProjects();
-    await loadGear();
-    renderAll();
+    loadProjects();
   } else {
     document.getElementById('loginScreen').style.display = 'flex';
     document.getElementById('mainApp').style.display = 'none';
   }
 });
 
-// ============ LOAD DATA ============
+// ============ PROJECTS ============
 async function loadProjects() {
   if (!currentUser) return;
   try {
@@ -359,34 +231,13 @@ async function loadProjects() {
     snapshot.forEach(doc => {
       items.push({ id: doc.id, ...doc.data() });
     });
-  } catch(e) { console.error('Load projects error:', e); }
+    renderProjects();
+    renderDashboard();
+  } catch(e) {
+    console.error('Load error:', e);
+  }
 }
 
-async function loadGear() {
-  if (!currentUser) return;
-  try {
-    const snapshot = await db.collection('users').doc(currentUser.uid)
-      .collection('gear').get();
-    gear = [];
-    snapshot.forEach(doc => {
-      gear.push({ id: doc.id, ...doc.data() });
-    });
-    // Učitaj check state iz localStorage
-    const saved = localStorage.getItem('wt-gear-check');
-    if (saved) gearCheckState = JSON.parse(saved);
-  } catch(e) { console.error('Load gear error:', e); }
-}
-
-// ============ RENDER ALL ============
-function renderAll() {
-  renderProjects();
-  renderDashboard();
-  renderGear();
-  renderChecklist();
-  renderGearStats();
-}
-
-// ============ PROJECTS ============
 function renderProjects() {
   const container = document.getElementById('projectList');
   if (!items.length) {
@@ -394,13 +245,12 @@ function renderProjects() {
     return;
   }
   container.innerHTML = items.map(p => `
-    <div class="project-card" onclick="editProject('${p.id}')">
-      <h3>${escapeHtml(p.title)}</h3>
-      <p class="loc">📍 ${escapeHtml(p.location||'N/A')}</p>
-      <p class="date">📅 ${p.due || 'N/A'}</p>
-      ${p.notes ? `<p style="color:#666;font-size:12px;margin:4px 0 0 0;">${escapeHtml(p.notes)}</p>` : ''}
-      <div class="actions">
-        <button onclick="event.stopPropagation();deleteProject('${p.id}')">🗑️ Delete</button>
+    <div style="background:#121a2f;border:1px solid #a855f7;border-radius:6px;padding:16px;cursor:pointer;" onclick="editProject('${p.id}')">
+      <h3 style="color:#fff;margin:0 0 6px 0;">${escapeHtml(p.title)}</h3>
+      <p style="color:#888;font-size:13px;margin:0 0 4px 0;">📍 ${escapeHtml(p.location||'N/A')}</p>
+      <p style="color:#666;font-size:12px;margin:0;">📅 ${p.due || 'N/A'}</p>
+      <div style="margin-top:8px;display:flex;gap:6px;">
+        <button onclick="event.stopPropagation();deleteProject('${p.id}')" style="background:#dc2626;color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;font-size:12px;">Delete</button>
       </div>
     </div>
   `).join('');
@@ -413,11 +263,11 @@ function openProjectModal() {
   document.getElementById('fLocation').value = '';
   document.getElementById('fDue').value = '';
   document.getElementById('fNotes').value = '';
-  document.getElementById('projectModal').classList.add('active');
+  document.getElementById('projectModal').style.display = 'flex';
 }
 
 function closeProjectModal() {
-  document.getElementById('projectModal').classList.remove('active');
+  document.getElementById('projectModal').style.display = 'none';
 }
 
 function editProject(id) {
@@ -429,7 +279,7 @@ function editProject(id) {
   document.getElementById('fLocation').value = p.location || '';
   document.getElementById('fDue').value = p.due || '';
   document.getElementById('fNotes').value = p.notes || '';
-  document.getElementById('projectModal').classList.add('active');
+  document.getElementById('projectModal').style.display = 'flex';
 }
 
 async function saveProject() {
@@ -439,6 +289,7 @@ async function saveProject() {
   const notes = document.getElementById('fNotes').value.trim();
   if (!title) { alert('Enter title.'); return; }
   if (!location) { alert('Enter location.'); return; }
+  if (!due) { alert('Select date.'); return; }
 
   const data = { title, location, due, notes, updatedAt: new Date().toISOString() };
   
@@ -452,8 +303,7 @@ async function saveProject() {
         .collection('projects').add(data);
     }
     closeProjectModal();
-    await loadProjects();
-    renderAll();
+    loadProjects();
   } catch(e) {
     alert('Error: ' + e.message);
   }
@@ -464,209 +314,16 @@ async function deleteProject(id) {
   try {
     await db.collection('users').doc(currentUser.uid)
       .collection('projects').doc(id).delete();
-    await loadProjects();
-    renderAll();
+    loadProjects();
   } catch(e) {
     alert('Error: ' + e.message);
   }
-}
-
-// ============ GEAR ============
-function renderGear() {
-  const container = document.getElementById('gearGrid');
-  if (!gear.length) {
-    container.innerHTML = '<div class="dash-empty" style="grid-column:1/-1;">No equipment added yet.</div>';
-    return;
-  }
-  container.innerHTML = gear.map(g => `
-    <div class="gear-card">
-      <div>
-        <div class="gear-name">${escapeHtml(g.name)}</div>
-        <div class="gear-type">${escapeHtml(g.brand||'')} · ${escapeHtml(g.type||'Other')}</div>
-        ${g.specs ? `<div class="gear-specs">${escapeHtml(g.specs)}</div>` : ''}
-        <div class="gear-specs" style="color:#666;font-size:11px;margin-top:4px;">
-          ${g.serial ? 'SN: '+escapeHtml(g.serial) : ''}
-          ${g.location ? ' · 📍 '+escapeHtml(g.location) : ''}
-          ${g.status ? ' · Status: '+escapeHtml(g.status) : ''}
-        </div>
-      </div>
-      <button class="del-btn" onclick="deleteGear('${g.id}')">✕</button>
-    </div>
-  `).join('');
-}
-
-function renderGearStats() {
-  const container = document.getElementById('gearStats');
-  const total = gear.length;
-  const available = gear.filter(g => g.status === 'available').length;
-  const inUse = gear.filter(g => g.status === 'in_use').length;
-  const inRepair = gear.filter(g => g.status === 'in_repair').length;
-  container.innerHTML = `
-    <div class="dash-card"><h4>Total</h4><div class="big-num">${total}</div></div>
-    <div class="dash-card"><h4>Available</h4><div class="big-num" style="color:#10b981;">${available}</div></div>
-    <div class="dash-card"><h4>In Use</h4><div class="big-num" style="color:#f59e0b;">${inUse}</div></div>
-    <div class="dash-card"><h4>In Repair</h4><div class="big-num" style="color:#ef4444;">${inRepair}</div></div>
-  `;
-}
-
-function openGearModal() {
-  editingGearId = null;
-  document.getElementById('gName').value = '';
-  document.getElementById('gSpecs').value = '';
-  document.getElementById('gBrand').value = '';
-  document.getElementById('gSerial').value = '';
-  document.getElementById('gLocation').value = '';
-  document.getElementById('gPurchase').value = '';
-  document.getElementById('gPrice').value = '';
-  document.getElementById('gNote').value = '';
-  document.getElementById('gType').value = 'body';
-  document.getElementById('gStatus').value = 'available';
-  selectedCondition = 5;
-  updateConditionButtons();
-  document.getElementById('gearModal').classList.add('active');
-}
-
-function closeGearModal() {
-  document.getElementById('gearModal').classList.remove('active');
-}
-
-function setCondition(val) {
-  selectedCondition = val;
-  updateConditionButtons();
-}
-
-function updateConditionButtons() {
-  for (let i = 1; i <= 5; i++) {
-    const btn = document.getElementById('cond' + i);
-    if (i === selectedCondition) {
-      btn.style.background = '#a855f7';
-      btn.style.borderColor = '#a855f7';
-      btn.style.color = '#fff';
-    } else {
-      btn.style.background = 'transparent';
-      btn.style.borderColor = '#333';
-      btn.style.color = '#888';
-    }
-  }
-}
-
-async function saveGear() {
-  const name = document.getElementById('gName').value.trim();
-  if (!name) { alert('Enter name.'); return; }
-  
-  const data = {
-    name,
-    type: document.getElementById('gType').value,
-    specs: document.getElementById('gSpecs').value.trim(),
-    brand: document.getElementById('gBrand').value.trim(),
-    serial: document.getElementById('gSerial').value.trim(),
-    location: document.getElementById('gLocation').value.trim(),
-    purchaseDate: document.getElementById('gPurchase').value,
-    price: parseFloat(document.getElementById('gPrice').value) || 0,
-    status: document.getElementById('gStatus').value,
-    condition: selectedCondition,
-    note: document.getElementById('gNote').value.trim(),
-    updatedAt: new Date().toISOString()
-  };
-  
-  try {
-    if (editingGearId) {
-      await db.collection('users').doc(currentUser.uid)
-        .collection('gear').doc(editingGearId).update(data);
-    } else {
-      data.createdAt = new Date().toISOString();
-      await db.collection('users').doc(currentUser.uid)
-        .collection('gear').add(data);
-    }
-    closeGearModal();
-    await loadGear();
-    renderAll();
-  } catch(e) {
-    alert('Error: ' + e.message);
-  }
-}
-
-async function deleteGear(id) {
-  if (!confirm('Delete this equipment?')) return;
-  try {
-    await db.collection('users').doc(currentUser.uid)
-      .collection('gear').doc(id).delete();
-    delete gearCheckState[id];
-    localStorage.setItem('wt-gear-check', JSON.stringify(gearCheckState));
-    await loadGear();
-    renderAll();
-  } catch(e) {
-    alert('Error: ' + e.message);
-  }
-}
-
-// ============ CHECKLIST ============
-function renderChecklist() {
-  const container = document.getElementById('checklistContainer');
-  if (!gear.length) {
-    container.innerHTML = '<div class="dash-empty">No gear in inventory.</div>';
-    document.getElementById('checklistSummary').textContent = '';
-    return;
-  }
-  container.innerHTML = gear.map(g => `
-    <div class="checklist-item">
-      <input type="checkbox" id="chk-${g.id}" ${gearCheckState[g.id] ? 'checked' : ''} onchange="toggleCheck('${g.id}', this.checked)">
-      <label for="chk-${g.id}" class="${gearCheckState[g.id] ? 'checked' : ''}">
-        ${escapeHtml(g.name)} ${g.specs ? '· '+escapeHtml(g.specs) : ''}
-      </label>
-    </div>
-  `).join('');
-  const checked = gear.filter(g => gearCheckState[g.id]).length;
-  document.getElementById('checklistSummary').textContent = `${checked}/${gear.length} checked`;
-}
-
-function toggleCheck(id, checked) {
-  gearCheckState[id] = checked;
-  localStorage.setItem('wt-gear-check', JSON.stringify(gearCheckState));
-  renderChecklist();
-}
-
-function checkAllGear() {
-  gear.forEach(g => gearCheckState[g.id] = true);
-  localStorage.setItem('wt-gear-check', JSON.stringify(gearCheckState));
-  renderChecklist();
-}
-
-function uncheckAllGear() {
-  gear.forEach(g => gearCheckState[g.id] = false);
-  localStorage.setItem('wt-gear-check', JSON.stringify(gearCheckState));
-  renderChecklist();
-}
-
-function printChecklist() {
-  const checked = gear.filter(g => gearCheckState[g.id]);
-  const unchecked = gear.filter(g => !gearCheckState[g.id]);
-  const printContent = `
-    <h1>WildTracks — Checklist</h1>
-    <h2>${new Date().toLocaleDateString()}</h2>
-    <h3>Packed (${checked.length}/${gear.length})</h3>
-    ${checked.map(g => `<div>✅ ${g.name}</div>`).join('') || 'None'}
-    <h3>Not Packed</h3>
-    ${unchecked.map(g => `<div>⬜ ${g.name}</div>`).join('') || 'All packed!'}
-  `;
-  const win = window.open('', '_blank');
-  win.document.write(`<style>body{font-family:Arial;padding:20px;color:#000;}</style>${printContent}`);
-  win.document.close();
-  win.print();
 }
 
 // ============ DASHBOARD ============
 function renderDashboard() {
   const total = items.length;
   document.getElementById('dashBadge').textContent = total;
-  
-  // Notifikacija 2/10
-  const notificationContainer = document.getElementById('notificationContainer');
-  if (total === 2) {
-    notificationContainer.innerHTML = `<div class="notification-banner">⚠️ Imate tačno <strong>2 od 10</strong> projekata. Preporučujemo da dodate još projekata!</div>`;
-  } else {
-    notificationContainer.innerHTML = '';
-  }
   
   // Stats
   document.getElementById('dashStats').innerHTML = `
@@ -716,7 +373,8 @@ function switchTab(tab) {
   document.querySelectorAll('.nav-bar button').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   
-  document.querySelector(`.nav-bar button[data-tab="${tab}"]`).classList.add('active');
+  const btnMap = { dashboard: 0, projects: 1, gear: 2 };
+  document.querySelectorAll('.nav-bar button')[btnMap[tab]]?.classList.add('active');
   document.getElementById('panel-' + tab).classList.add('active');
 }
 
@@ -728,10 +386,6 @@ function escapeHtml(s) {
 }
 
 // ============ INIT ============
-// Dashboard otvoren po default-u
-document.getElementById('dashBody').classList.add('open');
-document.getElementById('dashArrow').classList.add('open');
-
 console.log('🐾 WildTracks loaded');
 </script>
 </body>
