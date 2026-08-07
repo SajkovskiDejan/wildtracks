@@ -603,9 +603,10 @@ auth.onAuthStateChanged(async(u)=>{
     
     // ZATVORI DASHBOARD NAKON PRIJAVE
     dashboardOpen = false;
-    document.getElementById('dashboardBody').classList.remove('open');
-    document.getElementById('dashArrow').classList.remove('open');
-    localStorage.setItem('wt-dashboard-open', 'false');
+    const body = document.getElementById('dashboardBody');
+    const arrow = document.getElementById('dashArrow');
+    if (body) body.classList.remove('open');
+    if (arrow) arrow.classList.remove('open');
     
   } else {
     isPro=false;
@@ -687,7 +688,7 @@ function toggleDashboard() {
     body.classList.remove('open');
     arrow.classList.remove('open');
   }
-  localStorage.setItem('wt-dashboard-open', dashboardOpen ? 'true' : 'false');
+  // NE ČUVAMO U localStorage - uvek počinje zatvoreno
 }
 
 // ============ MAP FUNCTIONS ============
@@ -912,8 +913,10 @@ function renderDashboard(){
   
   // Osigurava da je Dashboard zatvoren nakon render-a
   if (!dashboardOpen) {
-    document.getElementById('dashboardBody').classList.remove('open');
-    document.getElementById('dashArrow').classList.remove('open');
+    const body = document.getElementById('dashboardBody');
+    const arrow = document.getElementById('dashArrow');
+    if (body) body.classList.remove('open');
+    if (arrow) arrow.classList.remove('open');
   }
 }
 
@@ -995,9 +998,11 @@ document.getElementById('profileNameInput').addEventListener('input',e=>{profile
 // ============ INIT ============
 // Dashboard je uvek zatvoren po default-u
 dashboardOpen = false;
-document.getElementById('dashboardBody').classList.remove('open');
-document.getElementById('dashArrow').classList.remove('open');
-localStorage.setItem('wt-dashboard-open', 'false');
+const body = document.getElementById('dashboardBody');
+const arrow = document.getElementById('dashArrow');
+if (body) body.classList.remove('open');
+if (arrow) arrow.classList.remove('open');
+localStorage.removeItem('wt-dashboard-open');
 
 console.log('🐾 WildTracks loaded successfully!');
 </script>
