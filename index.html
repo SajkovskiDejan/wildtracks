@@ -21,19 +21,6 @@
   .shell{max-width:1320px;margin:0 auto;padding:24px 20px 40px;display:block;}
   @media(max-width:480px){.shell{padding:16px 12px 30px;}.brand h1{font-size:24px;}.form-col{padding:18px;}.proj-actions{grid-template-columns:1fr;gap:8px;}.nav-bar{gap:6px;}.tab-btn{padding:9px 12px;font-size:12.5px;}}
 
-  /* ===== LOGIN EKRAN ===== */
-  #authArea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100vh;
-    background: #101a2e;
-    flex-direction: column;
-  }
-  #authArea .login-btn{margin:0 auto;}
-
-  /* HEADER */
   .profile-header{display:flex;justify-content:space-between;align-items:center;background:var(--bg-panel);border:1px solid var(--ridge);border-radius:8px;padding:24px 28px;margin-bottom:20px;box-shadow:var(--shadow);flex-wrap:wrap;gap:14px;}
   .brand{display:flex;flex-direction:column;}
   .brand .eyebrow{font-family:'Roboto',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ice);margin-bottom:4px;}
@@ -47,7 +34,17 @@
   .header-user-col{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
   .header-top-row{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
   
-  /* ===== AUTH - U HEADER-U (kada je ulogovan) ===== */
+  #authArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: #101a2e;
+    flex-direction: column;
+  }
+  #authArea .login-btn{margin:0 auto;}
+  
   .auth-area-header {
     display: flex;
     align-items: center;
@@ -78,7 +75,6 @@
   .gear-nav-btn-sm{background:var(--ember);border:1px solid var(--ember);color:#fff;padding:11px 0;font-size:13px;font-weight:700;border-radius:4px;cursor:pointer;white-space:nowrap;flex:1;height:44px;display:inline-flex;align-items:center;justify-content:center;gap:4px;}
   .gear-nav-btn-sm:hover{opacity:0.85;}
 
-  /* ICONS */
   .icon-svg{flex-shrink:0;vertical-align:middle;}
   .btn-secondary-sm .icon-svg,.btn-secondary-sm.active .icon-svg{stroke:currentColor;}
   .gear-nav-btn-sm .icon-svg,.login-btn .icon-svg,.add-btn .icon-svg{stroke:#fff;}
@@ -91,7 +87,6 @@
   .dash-tab-btn.active{color:#fff;background:var(--ember);border-color:var(--ember);}
   .tab-panel{display:none;}.tab-panel.active{display:block;}
 
-  /* ⭐ DROPDOWN DASHBOARD ⭐ */
   .dashboard-dropdown{background:#a855f724;border:0.5px solid #a855f7;border-radius:4px;margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden;display:block;}
   .dashboard-dropdown-header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;cursor:pointer;transition:background 0.2s,color 0.2s;user-select:none;border-radius:4px;}
   .dashboard-dropdown-header:hover{background:#a855f724;color:#e1cdff;}
@@ -104,7 +99,6 @@
   .dashboard-dropdown-body .dash-grid{margin-top:0;}
   .dashboard-dropdown-body .dash-row{margin-bottom:12px;}
 
-  /* ⭐ DASHBOARD KARTICE ⭐ */
   .dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
   @media(max-width:900px){.dash-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:500px){.dash-grid{grid-template-columns:1fr;}}
@@ -129,7 +123,6 @@
   .upcoming-dot{width:8px;height:8px;border-radius:50%;background:#a855f7;flex-shrink:0;}
   .upcoming-title{font-size:13.5px;font-weight:700;color:#fff;font-family:'Roboto',sans-serif;}
 
-  /* ⭐ MAPA ⭐ */
   .map-container{width:100%;height:400px;border-radius:4px;border:0.5px solid #a855f7;margin-bottom:16px;background:#1a1a2e;}
   .map-container .leaflet-control-zoom{background:#121a2f;border:0.5px solid #a855f7;}
   .map-container .leaflet-control-zoom a{background:#121a2f;color:#fff;border-color:#a855f7;}
@@ -197,12 +190,10 @@
   .notification-banner{background:#fff3cd;border-left:6px solid #ffc107;color:#856404;padding:14px 20px;border-radius:8px;margin-bottom:20px;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;gap:8px;animation:slideDown 0.3s ease-out;grid-column:1/-1;font-family:'Roboto',sans-serif;}
   @keyframes slideDown{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
 
-  /* ===== BOTTOM BAR - FIXED IZNAD FOOTERA ===== */
   .bottom-bar{position:fixed;left:0;right:0;bottom:40px;background:#e2cdff;border-top:0.5px solid var(--ridge);box-shadow:0 -2px 10px rgba(60,50,30,0.08);padding:8px 20px;display:flex;justify-content:center;z-index:40;}
   .add-btn{background:var(--ember);color:#fff;border:none;font-weight:700;padding:11px 24px;border-radius:6px;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:'Roboto',sans-serif;}
   .add-btn:hover{opacity:0.85;}
 
-  /* ===== FOOTER - FIXED NA DNU ===== */
   .footer-legal{position:fixed;bottom:0;left:0;right:0;text-align:center;padding:4px 20px;border-top:0.5px solid #a855f7;background:#101a2e;font-size:8px;color:#888;font-family:'Roboto',sans-serif;z-index:30;display:block;}
   .footer-legal strong{color:#a855f7;}
   .footer-legal a{color:#a855f7;text-decoration:none;cursor:pointer;}
@@ -255,7 +246,6 @@
   .custom-cat-name{flex:1;font-size:13px;font-weight:600;font-family:'Roboto',sans-serif;}
   @media print{body>*:not(#printArea){display:none!important;}#printArea{display:block!important;padding:20px;font-family:Arial,sans-serif;color:#000;}}
 
-  /* ⭐ MAP OVERLAY ⭐ */
   .map-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:100;padding:20px;}
   .map-overlay.active{display:flex;}
   .map-modal{background:#101a2e;border:0.5px solid #a855f7;border-radius:8px;width:100%;max-width:900px;max-height:90vh;overflow:hidden;padding:20px;}
@@ -266,7 +256,6 @@
   .map-modal .map-container{height:500px;border-radius:4px;border:0.5px solid #a855f7;}
   @media(max-width:600px){.map-modal .map-container{height:350px;}}
 
-  /* ===== TERMS OF USE OVERLAY ===== */
   .terms-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;font-family:'Roboto',sans-serif;}
   .terms-overlay.active{display:flex;}
   .terms-modal{background:#101a2e;border:0.5px solid #a855f7;border-radius:8px;max-width:600px;width:100%;max-height:85vh;display:flex;flex-direction:column;overflow:hidden;}
@@ -286,61 +275,12 @@
   .terms-agree-btn{background:#a855f7;color:#fff;border:none;padding:12px 24px;border-radius:4px;font-size:15px;font-weight:700;cursor:pointer;width:100%;font-family:'Roboto',sans-serif;transition:opacity 0.2s;}
   .terms-agree-btn:hover{opacity:0.85;}
 
-  /* Scrollbar stil za terms-body */
   .terms-body::-webkit-scrollbar{width:4px;}
   .terms-body::-webkit-scrollbar-track{background:#1a1a2e;}
   .terms-body::-webkit-scrollbar-thumb{background:#a855f7;border-radius:2px;}
   .terms-body::-webkit-scrollbar-thumb:hover{background:#8b3fd4;}
   
-  .user-chip {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--btn-fill);
-    border: 1px solid var(--ridge);
-    padding: 4px 14px 4px 4px;
-    border-radius: 4px;
-    font-weight: 700;
-    color: var(--paper);
-  }
-
-  /* ===== EQUIPMENT ===== */
-  .equipment-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;}
-  .equipment-header h2{color:#a855f7;font-size:18px;font-family:'Roboto',sans-serif;margin:0;}
-  .equipment-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
-  .equipment-stat{background:#121a2f;border:0.5px solid #a855f7;border-radius:4px;padding:6px 14px;text-align:center;}
-  .equipment-stat .num{font-size:18px;font-weight:900;color:#a855f7;}
-  .equipment-stat .label{font-size:9px;color:#888;text-transform:uppercase;letter-spacing:0.05em;}
-  .equipment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
-  .equipment-card{background:#121a2f;border:0.5px solid #a855f7;border-radius:4px;padding:14px 16px;transition:all 0.2s;}
-  .equipment-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(168,85,247,0.15);}
-  .equipment-card .top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
-  .equipment-card .name{font-size:15px;font-weight:700;color:#fff;font-family:'Roboto',sans-serif;}
-  .equipment-card .brand{font-size:11px;color:#a855f7;font-weight:600;}
-  .equipment-card .status-badge{font-size:9px;padding:2px 8px;border-radius:10px;font-weight:600;white-space:nowrap;}
-  .status-badge.available{background:#10b98120;color:#10b981;border:0.5px solid #10b981;}
-  .status-badge.in_use{background:#f59e0b20;color:#f59e0b;border:0.5px solid #f59e0b;}
-  .status-badge.in_repair{background:#ef444420;color:#ef4444;border:0.5px solid #ef4444;}
-  .status-badge.broken{background:#dc262620;color:#dc2626;border:0.5px solid #dc2626;}
-  .status-badge.lost{background:#6b728020;color:#6b7280;border:0.5px solid #6b7280;}
-  .equipment-card .details{display:grid;grid-template-columns:1fr 1fr;gap:2px 12px;margin:8px 0 6px;font-size:11px;color:#aaa;}
-  .equipment-card .details span{display:flex;align-items:center;gap:3px;}
-  .equipment-card .details .label{color:#666;font-size:9px;text-transform:uppercase;}
-  .equipment-card .actions{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap;}
-  .equipment-card .actions button{background:var(--btn-fill);border:0.5px solid var(--ridge);color:var(--stone);padding:4px 10px;border-radius:4px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Roboto',sans-serif;transition:all 0.15s;}
-  .equipment-card .actions button:hover{background:var(--ember);border-color:var(--ember);color:#fff;}
-  .equipment-card .actions button.primary{background:var(--ember);border-color:var(--ember);color:#fff;}
-  .equipment-card .actions button.primary:hover{opacity:0.8;}
-  .equipment-card .condition-stars{color:#f59e0b;font-size:12px;letter-spacing:0.5px;}
-  .equipment-empty{color:var(--stone);font-size:13px;text-align:center;padding:30px;font-style:italic;grid-column:1/-1;}
-
-  /* ===== GEAR SUB-NAV ===== */
-  .gear-sub-nav{display:flex;gap:4px;margin-bottom:14px;border-bottom:0.5px solid #a855f7;padding-bottom:8px;flex-wrap:wrap;}
-  .gear-sub-nav .gear-sub-tab{background:none;border:none;color:#888;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Roboto',sans-serif;border-bottom:2px solid transparent;transition:all 0.2s;border-radius:0;}
-  .gear-sub-nav .gear-sub-tab:hover{color:#fff;}
-  .gear-sub-nav .gear-sub-tab.active{color:#a855f7;border-bottom-color:#a855f7;}
-  .gear-sub-panel{display:none;}
-  .gear-sub-panel.active{display:block;}
+  .user-chip{display:flex;align-items:center;gap:8px;background:var(--btn-fill);border:1px solid var(--ridge);padding:4px 14px 4px 4px;border-radius:4px;font-weight:700;color:var(--paper);}
 </style>
 </head>
 <body>
@@ -439,43 +379,16 @@
   <div class="tab-panel" id="panel-avantura"><div id="alertZone-avantura"></div><div class="filter-group-label">CATEGORIES</div><div class="filters-row"><div class="filters" id="filters-avantura"></div></div><div class="view-toggle" id="viewToggle-avantura"></div><div class="board" id="board-avantura"></div></div>
   <div class="tab-panel" id="panel-cameratrap"><div id="alertZone-cameratrap"></div><div class="filter-group-label">CATEGORIES</div><div class="filters-row"><div class="filters" id="filters-cameratrap"></div></div><div class="view-toggle" id="viewToggle-cameratrap"></div><div class="board" id="board-cameratrap"></div></div>
 
-  <!-- ===== GEAR & PROFILE PANEL ===== -->
   <div class="tab-panel" id="panel-gear">
-    <div class="gear-sub-nav">
-      <button class="gear-sub-tab active" data-subtab="equipment" onclick="switchGearSubTab('equipment')">📦 Equipment</button>
-      <button class="gear-sub-tab" data-subtab="profile" onclick="switchGearSubTab('profile')">👤 Profile</button>
-      <button class="gear-sub-tab" data-subtab="checklist" onclick="switchGearSubTab('checklist')">✅ Checklist</button>
-      <button class="gear-sub-tab" data-subtab="categories" onclick="switchGearSubTab('categories')">🏷️ Categories</button>
-    </div>
-
-    <div class="gear-sub-panel active" id="subtab-equipment">
-      <div class="equipment-header">
-        <h2>📦 Equipment Inventory</h2>
-        <button class="btn-secondary-sm active" onclick="openGearModal()" style="background:var(--ember);border-color:var(--ember);color:#fff;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
-          Add Equipment
-        </button>
-      </div>
-      <div class="equipment-stats" id="equipmentStats"></div>
-      <div class="equipment-grid" id="equipmentGrid"></div>
-    </div>
-
-    <div class="gear-sub-panel" id="subtab-profile">
-      <div class="profile-box"><h3>About Me</h3><div class="field"><label>NAME</label><input type="text" id="profileNameInput"></div><textarea id="bioText" placeholder="About you..."></textarea><div class="save-note" style="font-size:11px;color:var(--stone);margin-top:6px;">Auto-saved</div></div>
-    </div>
-
-    <div class="gear-sub-panel" id="subtab-checklist">
-      <div class="profile-box"><h3>✅ Checklist — Field Gear</h3><div id="checklistContainer"></div><div class="checklist-summary" id="checklistSummary" style="font-size:12px;margin-top:8px;"></div><div style="display:flex;gap:8px;margin-top:10px;">
-        <button class="btn-secondary-sm" onclick="checkAllGear()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Check All</button>
-        <button class="btn-secondary-sm" onclick="uncheckAllGear()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Uncheck All</button>
-        <button class="btn-secondary-sm active" onclick="printChecklist()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg> Print</button>
-      </div></div>
-    </div>
-
-    <div class="gear-sub-panel" id="subtab-categories">
-      <div class="profile-box"><h3>Custom Categories</h3><button class="btn-secondary-sm" onclick="openCatModal()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> ADD CATEGORY</button><div class="custom-cat-list" id="customCatList" style="margin-top:12px;"></div></div>
-    </div>
-
+    <div class="profile-box"><h3>About Me</h3><div class="field"><label>NAME</label><input type="text" id="profileNameInput"></div><textarea id="bioText" placeholder="About you..."></textarea><div class="save-note" style="font-size:11px;color:var(--stone);margin-top:6px;">Auto-saved</div></div>
+    <div class="profile-box"><h3>✅ Checklist — Field Gear</h3><div id="checklistContainer"></div><div class="checklist-summary" id="checklistSummary" style="font-size:12px;margin-top:8px;"></div><div style="display:flex;gap:8px;margin-top:10px;">
+      <button class="btn-secondary-sm" onclick="checkAllGear()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Check All</button>
+      <button class="btn-secondary-sm" onclick="uncheckAllGear()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Uncheck All</button>
+      <button class="btn-secondary-sm active" onclick="printChecklist()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg> Print</button>
+    </div></div>
+    <div class="profile-box"><h3>Custom Categories</h3><button class="btn-secondary-sm" onclick="openCatModal()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> ADD CATEGORY</button><div class="custom-cat-list" id="customCatList" style="margin-top:12px;"></div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;"><h3>Gear</h3><button class="add-btn" style="padding:9px 16px;font-size:13.5px;" onclick="openGearModal()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> New Gear</button></div>
+    <div class="gear-grid" id="gearGrid"></div>
     <div class="gear-close-bar" style="display:flex;justify-content:flex-end;margin-top:20px;padding-top:16px;border-top:0.5px solid var(--ridge);">
       <button class="btn-secondary-sm active" onclick="switchTab('dashboard')"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Back to Dashboard</button>
     </div>
@@ -554,14 +467,13 @@ firebase.initializeApp(firebaseConfig);const db=firebase.firestore();const auth=
 const MEDIUMS={video:{label:'Video Project',color:'#A855F7'},foto:{label:'Photo Project',color:'#5f8583'},avantura:{label:'Photo Adventure',color:'#a17e1f'},cameratrap:{label:'Camera Trap Project',color:'#54677a'}};
 const CATEGORIES={wildlife:{label:'Wildlife',color:'#3B0764'},landscape:{label:'Landscape',color:'#5B21B6'},night:{label:'Night / Milky Way',color:'#7C3AED'},city:{label:'City',color:'#9333EA'},people:{label:'People',color:'#A855F7'},home_animal:{label:'Domestic Animals',color:'#C084FC'},cameratrap:{label:'Camera Trap',color:'#D8B4FE'}};
 const STAGES=[{key:'ideja',label:'Idea'},{key:'snimljeno',label:'Shot'},{key:'montirano',label:'Edited'},{key:'objavljeno',label:'Published'}];
-const GEAR_TYPES={body:{label:'Body'},lens:{label:'Lens'},lighting:{label:'Lighting'},audio:{label:'Audio'},support:{label:'Support'},storage:{label:'Storage'},accessories:{label:'Accessories'},drone:{label:'Drone'},other:{label:'Other'}};
+const GEAR_TYPES={body:{label:'Body'},lens:{label:'Lens'},other:{label:'Additional Gear'}};
 const TABS=['video','foto','avantura','cameratrap'];const ACTIONS=[{key:'snimljeno',label:'Done Recording'},{key:'montirano',label:'Done Editing'},{key:'objavljeno',label:'Done Published'}];
 let items=[],gear=[],bio='',profileName='Dejan',avatar=null,headerBg=null,customCategories={},gearCheckState={},sharedProjects={},notifiedShoots={};
 let activeFilter={video:'all',foto:'all',avantura:'all',cameratrap:'all'},activeView={video:'list',foto:'list',avantura:'list',cameratrap:'list'};
 let selectedMedium='video',selectedCategory='wildlife',selectedStatus='ideja',selectedGearType='body',selectedGearIds=[],editingId=null,currentImage=null,currentUser=null;
 let bioSaveTimer=null,nameSaveTimer=null;
 let mapInstance=null;let mapFocusProjectId=null;
-let currentGearSubTab='equipment';
 
 // ============ LICENSING SYSTEM ============
 const APP_MODE='dev';const FREE_LIMIT=10;const ADMIN_EMAILS=['sajkovskidejan@gmail.com','sanjaostrovo@gmail.com'];
@@ -595,7 +507,6 @@ auth.onAuthStateChanged(async(u)=>{
     document.getElementById('loadingMsg').style.display='none';
     renderAll();
     renderDashboard();
-    renderEquipment();
     dashboardOpen=false;
     const body=document.getElementById('dashboardBody');
     const arrow=document.getElementById('dashArrow');
@@ -664,20 +575,10 @@ function toggleDashboard(){
   else{body.classList.remove('open');arrow.classList.remove('open');}
 }
 
-// ============ GEAR SUB-TABS ============
-function switchGearSubTab(tab){
-  currentGearSubTab=tab;
-  document.querySelectorAll('.gear-sub-tab').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.gear-sub-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelector(`.gear-sub-tab[data-subtab="${tab}"]`).classList.add('active');
-  document.getElementById(`subtab-${tab}`).classList.add('active');
-  if(tab==='equipment') renderEquipment();
-}
-
 // ============ STORAGE ============
 async function loadAllLocal(){try{items=JSON.parse(localStorage.getItem('wt-items')||'[]');}catch(e){items=[];}try{const p=JSON.parse(localStorage.getItem('wt-gear')||'{}');gear=p.items||[];bio=p.bio||'';profileName=p.profileName||'Dejan';avatar=p.avatar||null;headerBg=p.headerBg||null;}catch(e){gear=[];}try{customCategories=JSON.parse(localStorage.getItem('wt-cats')||'{}');}catch(e){customCategories={};}try{gearCheckState=JSON.parse(localStorage.getItem('wt-check')||'{}');}catch(e){gearCheckState={};}try{sharedProjects=JSON.parse(localStorage.getItem('wt-shared')||'{}');}catch(e){sharedProjects={};}try{notifiedShoots=JSON.parse(localStorage.getItem('wt-notified')||'{}');}catch(e){notifiedShoots={};}}
 async function persistAll(){localStorage.setItem('wt-items',JSON.stringify(items));localStorage.setItem('wt-gear',JSON.stringify({items:gear,bio,profileName,avatar,headerBg}));localStorage.setItem('wt-cats',JSON.stringify(customCategories));localStorage.setItem('wt-check',JSON.stringify(gearCheckState));localStorage.setItem('wt-shared',JSON.stringify(sharedProjects));localStorage.setItem('wt-notified',JSON.stringify(notifiedShoots));if(currentUser){await db.collection('users').doc(currentUser.uid).collection('data').doc('main').set({items,gear,bio,profileName,avatar,headerBg,customCategories,gearCheckState,_sender:currentUser.uid,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});}}
-async function loadAll(){await loadAllLocal();if(currentUser){const cd=await db.collection('users').doc(currentUser.uid).collection('data').doc('main').get();const cloudData=cd.exists?cd.data():null;if(cloudData&&cloudData.updatedAt){const lu=localStorage.getItem('wt-lastsync');if(!lu||cloudData.updatedAt.toMillis()>parseInt(lu)){items=cloudData.items||[];gear=cloudData.gear||[];bio=cloudData.bio||'';profileName=cloudData.profileName||'Dejan';avatar=cloudData.avatar||null;headerBg=cloudData.headerBg||null;customCategories=cloudData.customCategories||{};gearCheckState=cloudData.gearCheckState||{};await persistAll();}}document.getElementById('bioText').value=bio;document.getElementById('profileNameInput').value=profileName;renderAvatar();applyHeaderBg();document.getElementById('loadingMsg').style.display='none';renderAll();renderDashboard();renderEquipment();checkShareLink();requestNotificationPermission();startNotificationChecker();checkTerms();}}
+async function loadAll(){await loadAllLocal();if(currentUser){const cd=await db.collection('users').doc(currentUser.uid).collection('data').doc('main').get();const cloudData=cd.exists?cd.data():null;if(cloudData&&cloudData.updatedAt){const lu=localStorage.getItem('wt-lastsync');if(!lu||cloudData.updatedAt.toMillis()>parseInt(lu)){items=cloudData.items||[];gear=cloudData.gear||[];bio=cloudData.bio||'';profileName=cloudData.profileName||'Dejan';avatar=cloudData.avatar||null;headerBg=cloudData.headerBg||null;customCategories=cloudData.customCategories||{};gearCheckState=cloudData.gearCheckState||{};await persistAll();}}document.getElementById('bioText').value=bio;document.getElementById('profileNameInput').value=profileName;renderAvatar();applyHeaderBg();document.getElementById('loadingMsg').style.display='none';renderAll();renderDashboard();checkShareLink();requestNotificationPermission();startNotificationChecker();checkTerms();}}
 
 // ============ HELPERS ============
 function escapeHtml(s){const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
@@ -685,71 +586,52 @@ function formatDate(s){if(!s)return'';const d=new Date(s+'T00:00:00');return`${S
 function daysUntil(d){if(!d)return null;return Math.round((new Date(d+'T00:00:00')-new Date().setHours(0,0,0,0))/86400000);}
 function getAllCategories(){return{...CATEGORIES,...customCategories};}
 function createdDate(i){if(!i||!i.id)return'—';const ts=parseInt((i.id||'').split('-')[1]);if(isNaN(ts))return'—';return formatDate(new Date(ts).toISOString().slice(0,10));}
-function getStatusLabel(s){const labels={available:'Available',in_use:'In Use',in_repair:'In Repair',broken:'Broken',lost:'Lost'};return labels[s]||s;}
-function getConditionStars(c){return '⭐'.repeat(c)+'☆'.repeat(5-c);}
 
-// ============ EQUIPMENT ============
-function renderEquipment(){
-  const grid=document.getElementById('equipmentGrid');
-  const stats=document.getElementById('equipmentStats');
-  if(!gear.length){
-    grid.innerHTML='<div class="equipment-empty">📭 No equipment added yet.<br>Click "Add Equipment" to start building your inventory.</div>';
-    stats.innerHTML='';
+// ============ IMAGE ============
+function handleImageUpload(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=new Image();img.onload=()=>{const c=document.createElement('canvas'),s=Math.min(1,800/img.width);c.width=img.width*s;c.height=img.height*s;c.getContext('2d').drawImage(img,0,0,c.width,c.height);currentImage=c.toDataURL('image/jpeg',0.7);renderImagePreview();};img.src=ev.target.result;};r.readAsDataURL(f);}
+function clearImage(){currentImage=null;renderImagePreview();}
+function renderImagePreview(){document.getElementById('imageDrop').innerHTML=currentImage?`<img src="${currentImage}">`:'<span>+ Add Image</span>';}
+function handleAvatarUpload(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=new Image();img.onload=()=>{const c=document.createElement('canvas'),s=Math.min(1,300/img.width);c.width=img.width*s;c.height=img.height*s;c.getContext('2d').drawImage(img,0,0,c.width,c.height);avatar=c.toDataURL('image/jpeg',0.75);renderAvatar();persistAll();};img.src=ev.target.result;};r.readAsDataURL(f);}
+function renderAvatar(){}
+function handleHeaderBgUpload(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=new Image();img.onload=()=>{const c=document.createElement('canvas'),s=Math.min(1,1200/img.width);c.width=img.width*s;c.height=img.height*s;c.getContext('2d').drawImage(img,0,0,c.width,c.height);headerBg=c.toDataURL('image/jpeg',0.75);applyHeaderBg();persistAll();};img.src=ev.target.result;};r.readAsDataURL(f);}
+function applyHeaderBg(){const el=document.querySelector('.profile-header');if(el){if(headerBg){el.classList.add('has-bg');el.style.backgroundImage=`url(${headerBg})`;}else{el.classList.remove('has-bg');el.style.backgroundImage='';}}}
+
+// ============ NAVIGATION ============
+function switchTab(tab){
+  if(tab==='dashboard'){
+    document.querySelectorAll('.dash-tab-btn').forEach(b=>b.classList.add('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.gear-nav-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('bottomBar').style.display='flex';
+    document.getElementById('panel-search').classList.remove('active');
+    renderDashboard();
     return;
   }
-  const total=gear.length;
-  const available=gear.filter(g=>g.status==='available').length;
-  const inUse=gear.filter(g=>g.status==='in_use').length;
-  const inRepair=gear.filter(g=>g.status==='in_repair').length;
-  stats.innerHTML=`
-    <div class="equipment-stat"><div class="num">${total}</div><div class="label">Total</div></div>
-    <div class="equipment-stat"><div class="num" style="color:#10b981;">${available}</div><div class="label">Available</div></div>
-    <div class="equipment-stat"><div class="num" style="color:#f59e0b;">${inUse}</div><div class="label">In Use</div></div>
-    <div class="equipment-stat"><div class="num" style="color:#ef4444;">${inRepair}</div><div class="label">In Repair</div></div>
-  `;
-  grid.innerHTML=gear.map(g=>{
-    const statusClass=g.status||'available';
-    const statusLabel=getStatusLabel(statusClass);
-    const stars=getConditionStars(g.condition||3);
-    const typeLabel=GEAR_TYPES[g.type]?.label||g.type||'Other';
-    return `
-      <div class="equipment-card">
-        <div class="top-row">
-          <div>
-            <div class="name">${escapeHtml(g.name)}</div>
-            <div class="brand">${escapeHtml(g.brand||'')} · ${escapeHtml(typeLabel)}</div>
-          </div>
-          <span class="status-badge ${statusClass}">${statusLabel}</span>
-        </div>
-        <div class="details">
-          <span><span class="label">SN:</span> ${escapeHtml(g.serialNumber||'—')}</span>
-          <span><span class="label">Location:</span> ${escapeHtml(g.location||'—')}</span>
-          <span><span class="label">Condition:</span> ${stars}</span>
-          <span><span class="label">Used:</span> ${g.usageCount||0}x</span>
-        </div>
-        <div class="actions">
-          <button class="primary" onclick="editGear('${g.id}')">✏️ Edit</button>
-          <button onclick="checkOutGear('${g.id}')">📤 Check-Out</button>
-          <button onclick="deleteGear('${g.id}')">🗑️ Delete</button>
-        </div>
-      </div>
-    `;
-  }).join('');
+  document.querySelectorAll('.dash-tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  document.querySelectorAll('.gear-nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  const panelId = tab === 'gear' ? 'panel-gear' : 'panel-'+tab;
+  document.getElementById(panelId).classList.add('active');
+  document.getElementById('bottomBar').style.display=tab==='gear'?'none':'flex';
+  if(TABS.includes(tab))selectedMedium=tab;
+  document.getElementById('panel-search').classList.remove('active');
 }
 
-// ============ GEAR FUNCTIONS ============
-function editGear(id){alert('Edit gear: '+id);}
-function checkOutGear(id){alert('Check-Out gear: '+id);}
-
-async function deleteGear(id){
-  if(!confirm('Delete this equipment?'))return;
-  gear=gear.filter(g=>g.id!==id);
-  delete gearCheckState[id];
-  renderGear();
-  renderEquipment();
-  renderChecklist();
-  await persistAll();
+// ============ SEARCH ============
+function handleGlobalSearch(q){
+  if(!q.trim()){clearGlobalSearch();return;}
+  document.getElementById('globalSearchClear').style.display='block';
+  const m=items.filter(i=>(i.title||'').toLowerCase().includes(q.toLowerCase())||(i.linkedProject||'').toLowerCase().includes(q.toLowerCase()));
+  document.querySelectorAll('.dash-tab-btn,.tab-btn,.gear-nav-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-search').classList.add('active');
+  document.getElementById('bottomBar').style.display='flex';
+  document.getElementById('searchResultsLabel').textContent=`🔍 ${m.length} results for "${q}"`;
+  document.getElementById('board-search').innerHTML=m.length===0?'<div class="dash-empty">No results.</div>':m.map((i,idx)=>renderProjectGroup(i,idx)).join('');
 }
+function clearGlobalSearch(){document.getElementById('globalSearchInput').value='';document.getElementById('globalSearchClear').style.display='none';switchTab('dashboard');}
 
 // ============ RENDER PROJECT GROUP ============
 function renderProjectGroup(item,idx){const ci=item.status==='ideja'?-1:ACTIONS.findIndex(a=>a.key===item.status);const badge=String(idx+1).padStart(2,'0'),isShared=sharedProjects[item.id];const btns=ACTIONS.map((a,i)=>`<button class="proj-action-btn ${i<=ci?'done-text':i===ci+1?'active':''}" onclick="event.stopPropagation();moveItem('${item.id}','${a.key}')">${a.label}</button>`).join('');const allCats=getAllCategories(),cat=allCats[item.category]||{label:item.category,color:'#888'},medium=MEDIUMS[item.medium]||{label:item.medium};const gn=(item.gearIds||[]).map(gid=>gear.find(g=>g.id===gid)).filter(Boolean);const imgHtml=item.image?`<div class="proj-image-block"><img src="${item.image}" alt=""></div>`:`<div class="proj-image-block"><div class="proj-image-placeholder">+ ADD<br>IMAGE</div></div>`;return`<div class="proj-group"><div class="proj-item">${badge?`<div class="proj-badge-wrap"><span class="proj-badge">${badge}</span></div>`:''}${isShared?'<span class="shared-badge">🔗 Shared</span>':''}<button class="proj-share-btn" onclick="event.stopPropagation();shareProject('${item.id}')" title="Share">${icon('share',18,'#101A2E')}</button><button class="proj-print-btn" onclick="event.stopPropagation();printProjectCard('${item.id}')" title="Print">${icon('print',18,'#101A2E')}</button><button class="proj-plus-btn" onclick="event.stopPropagation();openNotesPopup('${item.id}')" title="Notes">${icon('notes',18,'#101A2E')}</button><div class="proj-card-border"><div class="proj-card" onclick="openModal('${item.id}')"><div class="proj-header">${escapeHtml(medium.label).toUpperCase()}</div>${item.linkedProject?`<div class="linked-tag" onclick="event.stopPropagation();handleGlobalSearch('${escapeHtml(item.linkedProject).replace(/'/g,"&#39;")}')">🔗 ${escapeHtml(item.linkedProject)}</div>`:''}<div class="proj-divider"></div><div style="text-align:center;font-size:18px;font-weight:800;margin-bottom:12px;color:#404040;">${escapeHtml(item.title)}</div><div class="proj-info-row"><div class="proj-dates-col"><div class="date-block"><span class="date-label">Card:</span><span class="date-value">${createdDate(item)}</span></div><div class="date-block"><span class="date-label">Shooting:</span><span class="date-value">${item.due?formatDate(item.due):'—'}</span></div></div><div class="v-divider"></div><div class="proj-loc-col" onclick="event.stopPropagation();openProjectLocation('${item.id}')"><div class="loc-content">${icon('loc',22,'#404040')}<span class="proj-loc-label">LOCATION</span></div></div><div class="v-divider"></div>${imgHtml}</div><div class="proj-divider"></div>${gn.length?`<div class="card-gear">${gn.map(g=>`<span class="gear-chip">${escapeHtml(g.name)}</span>`).join('')}</div>`:''}${item.notes?`<div class="card-notes">${escapeHtml(item.notes)}</div>`:''}<div class="proj-actions">${btns}</div></div></div></div></div>`;}
@@ -827,12 +709,13 @@ function setCatFilter(tab,key){activeFilter[tab]=key;renderCatFilters(tab);rende
 function renderViewToggle(tab){document.getElementById('viewToggle-'+tab).innerHTML=`<button class="view-toggle-btn ${activeView[tab]==='list'?'active':''}" onclick="setView('${tab}','list')">☰ List</button>`;}
 function setView(tab,view){activeView[tab]=view;renderViewToggle(tab);renderBoard(tab);}
 
-// ============ GEAR (OLD) ============
+// ============ GEAR ============
 function renderGear(){const g=document.getElementById('gearGrid');if(!gear.length){g.innerHTML='<div class="dash-empty">No gear.</div>';return;}g.innerHTML=gear.map(x=>`<div class="gear-card"><div><div class="gear-type-tag">${GEAR_TYPES[x.type]?.label||x.type}</div><div class="gear-name">${escapeHtml(x.name)}</div>${x.specs?`<div style="font-size:12px;color:var(--stone);">${escapeHtml(x.specs)}</div>`:''}</div><button class="del-btn" onclick="deleteGear('${x.id}')">${icon('trash',14,'#8c8573')}</button></div>`).join('');}
+async function deleteGear(id){if(!confirm('Delete?'))return;gear=gear.filter(g=>g.id!==id);delete gearCheckState[id];renderGear();renderChecklist();await persistAll();}
 function openGearModal(){document.getElementById('gName').value='';document.getElementById('gSpecs').value='';document.getElementById('gNote').value='';renderGearTypeChoices('body');document.getElementById('gearOverlay').style.display='flex';}
 function closeGearModal(){document.getElementById('gearOverlay').style.display='none';}
 function renderGearTypeChoices(sel){selectedGearType=sel;document.getElementById('gearTypeChoices').innerHTML=Object.entries(GEAR_TYPES).map(([k,v])=>`<button class="type-choice ${k===sel?'sel':''}" style="${k===sel?'background:var(--ember);border-color:var(--ember);color:#fff':''}" onclick="renderGearTypeChoices('${k}')">${v.label}</button>`).join('');}
-async function saveGear(){const n=document.getElementById('gName').value.trim();if(!n){alert('Enter name.');return;}gear.push({id:'gear-'+Date.now(),type:selectedGearType,name:n,specs:document.getElementById('gSpecs').value.trim(),note:document.getElementById('gNote').value.trim(),status:'available',condition:5,brand:'',serialNumber:'',location:'',purchaseDate:'',purchasePrice:0,warrantyUntil:'',supplier:'',usageCount:0,createdAt:new Date().toISOString(),createdBy:currentUser?currentUser.uid:'local'});closeGearModal();renderGear();renderEquipment();renderChecklist();await persistAll();}
+async function saveGear(){const n=document.getElementById('gName').value.trim();if(!n){alert('Enter name.');return;}gear.push({id:'gear-'+Date.now(),type:selectedGearType,name:n,specs:document.getElementById('gSpecs').value.trim(),note:document.getElementById('gNote').value.trim()});closeGearModal();renderGear();renderChecklist();await persistAll();}
 
 // ============ CHECKLIST ============
 function renderChecklist(){const c=document.getElementById('checklistContainer');if(!gear.length){c.innerHTML='<div class="dash-empty">No gear.</div>';document.getElementById('checklistSummary').textContent='';return;}c.innerHTML=gear.map(g=>`<div class="checklist-item"><input type="checkbox" id="chk-${g.id}" ${gearCheckState[g.id]?'checked':''} onchange="toggleGearCheck('${g.id}',this.checked)"><label for="chk-${g.id}" class="${gearCheckState[g.id]?'checked':''}"><span class="gear-type-tag">${GEAR_TYPES[g.type]?.label||g.type}</span> ${escapeHtml(g.name)}</label></div>`).join('');document.getElementById('checklistSummary').textContent=`${gear.filter(g=>gearCheckState[g.id]).length}/${gear.length} checked`;}
@@ -854,7 +737,7 @@ function startNotificationChecker(){setInterval(()=>{if(!('Notification' in wind
 
 // ============ EXPORT/IMPORT ============
 function exportData(){const p={items,gear,bio,profileName,avatar,headerBg,customCategories,gearCheckState,sharedProjects};const b=new Blob([JSON.stringify(p)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`wildtracks-${new Date().toISOString().slice(0,10)}.json`;a.click();}
-function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=async ev=>{try{const d=JSON.parse(ev.target.result);if(!confirm('Replace all data?'))return;items=d.items||[];gear=d.gear||[];bio=d.bio||'';profileName=d.profileName||'Dejan';avatar=d.avatar||null;headerBg=d.headerBg||null;customCategories=d.customCategories||{};gearCheckState=d.gearCheckState||{};sharedProjects=d.sharedProjects||{};document.getElementById('bioText').value=bio;document.getElementById('profileNameInput').value=profileName;renderAvatar();applyHeaderBg();renderAll();renderDashboard();renderEquipment();await persistAll();alert('✅ Imported!');}catch(er){alert('Invalid file.');}};r.readAsText(f);e.target.value='';}
+function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=async ev=>{try{const d=JSON.parse(ev.target.result);if(!confirm('Replace all data?'))return;items=d.items||[];gear=d.gear||[];bio=d.bio||'';profileName=d.profileName||'Dejan';avatar=d.avatar||null;headerBg=d.headerBg||null;customCategories=d.customCategories||{};gearCheckState=d.gearCheckState||{};sharedProjects=d.sharedProjects||{};document.getElementById('bioText').value=bio;document.getElementById('profileNameInput').value=profileName;renderAvatar();applyHeaderBg();renderAll();renderDashboard();await persistAll();alert('✅ Imported!');}catch(er){alert('Invalid file.');}};r.readAsText(f);e.target.value='';}
 
 // ============ EVENT LISTENERS ============
 document.getElementById('bioText').addEventListener('input',e=>{bio=e.target.value;clearTimeout(bioSaveTimer);bioSaveTimer=setTimeout(()=>persistAll(),800);});
