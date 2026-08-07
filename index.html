@@ -14,7 +14,7 @@
 <style>
   :root{--bg-deep:#f3eee2;--bg-panel:#ffffff;--bg-card:#ffffff;--page-bg:#101A2E;--ridge:#e3dac6;--ridge-soft:#eee7d8;--stone:#8c8573;--paper:#2b2a22;--ember:#A855F7;--ice:#5f8583;--gold:#b8901f;--wine:#8a5568;--violet:#6a5a9c;--moss:#6d8a52;--rust:#a35f2f;--slate-teal:#4f7371;--mustard:#a17e1f;--plum:#6b4a5a;--steel:#54677a;--alert:#b04630;--btn-fill:#f4efe2;--shadow:0 1px 3px rgba(60,50,30,0.08);}
   *{box-sizing:border-box;}
-  body{margin:0;background:var(--page-bg);color:#ffffff;font-family:'Roboto',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;font-size:15px;padding-bottom:100px;}
+  body{margin:0;background:var(--page-bg);color:#ffffff;font-family:'Roboto',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;font-size:15px;padding-bottom:80px;}
   .mono{font-family:'Roboto',monospace;}
   h1,h2,h3{font-family:'Roboto',sans-serif;font-weight:700;margin:0;}
   button{font-family:'Roboto',sans-serif;cursor:pointer;}
@@ -197,9 +197,18 @@
   .notification-banner{background:#fff3cd;border-left:6px solid #ffc107;color:#856404;padding:14px 20px;border-radius:8px;margin-bottom:20px;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;align-items:center;gap:8px;animation:slideDown 0.3s ease-out;grid-column:1/-1;font-family:'Roboto',sans-serif;}
   @keyframes slideDown{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
 
-  .bottom-bar{position:fixed;left:0;right:0;bottom:0;background:#e2cdff;border-top:0.5px solid var(--ridge);box-shadow:0 -2px 10px rgba(60,50,30,0.08);padding:14px 20px;display:flex;justify-content:center;z-index:40;}
+  /* ===== BOTTOM BAR - FIXED IZNAD FOOTERA ===== */
+  .bottom-bar{position:fixed;left:0;right:0;bottom:36px;background:#e2cdff;border-top:0.5px solid var(--ridge);box-shadow:0 -2px 10px rgba(60,50,30,0.08);padding:10px 20px;display:flex;justify-content:center;z-index:40;}
   .add-btn{background:var(--ember);color:#fff;border:none;font-weight:700;padding:13px 28px;border-radius:6px;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:'Roboto',sans-serif;}
   .add-btn:hover{opacity:0.85;}
+
+  /* ===== FOOTER - FIXED ISPOD BOTTOM BAR ===== */
+  .footer-legal{position:fixed;bottom:0;left:0;right:0;text-align:center;padding:6px 20px;border-top:0.5px solid #a855f7;background:#101a2e;font-size:9px;color:#888;font-family:'Roboto',sans-serif;z-index:30;display:block;}
+  .footer-legal strong{color:#a855f7;}
+  .footer-legal a{color:#a855f7;text-decoration:none;cursor:pointer;}
+  .footer-legal a:hover{text-decoration:underline;opacity:0.8;}
+  .footer-separator{display:inline-block;margin:0 4px;color:#555;}
+  .footer-note{font-size:8px;color:#666;margin-top:1px;opacity:0.6;font-family:'Roboto',sans-serif;}
 
   .overlay{position:fixed;inset:0;background:rgba(30,26,16,0.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px;overflow-y:auto;}
   .modal{background:var(--bg-panel);border:0.5px solid var(--ridge);border-radius:10px;width:100%;max-width:800px;margin:auto;box-shadow:0 10px 40px rgba(30,26,16,0.25);}
@@ -256,14 +265,6 @@
   .map-modal-close:hover{color:#a855f7;}
   .map-modal .map-container{height:500px;border-radius:4px;border:0.5px solid #a855f7;}
   @media(max-width:600px){.map-modal .map-container{height:350px;}}
-
-  /* ===== FOOTER - FIXED IZNAD BOTTOM BAR ===== */
-  .footer-legal{position:fixed;bottom:60px;left:0;right:0;text-align:center;padding:8px 20px;border-top:0.5px solid #a855f7;background:#101a2e;font-size:10px;color:#888;font-family:'Roboto',sans-serif;z-index:39;display:block;}
-  .footer-legal strong{color:#a855f7;}
-  .footer-legal a{color:#a855f7;text-decoration:none;cursor:pointer;}
-  .footer-legal a:hover{text-decoration:underline;opacity:0.8;}
-  .footer-separator{display:inline-block;margin:0 4px;color:#555;}
-  .footer-note{font-size:8px;color:#666;margin-top:1px;opacity:0.6;font-family:'Roboto',sans-serif;}
 
   /* ===== TERMS OF USE OVERLAY ===== */
   .terms-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;font-family:'Roboto',sans-serif;}
@@ -432,12 +433,13 @@
   </div>
 </div>
 
-<div class="bottom-bar" id="bottomBar" style="display:none;"><button class="add-btn" onclick="openModal(null)"><svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> New Project</button></div>
-
-<div class="overlay" id="overlay" style="display:none;"><div class="modal"><div class="detail-grid"><div class="image-col"><div class="image-drop" id="imageDrop" onclick="document.getElementById('imageInput').click()"><span>+ Add Image</span></div><input type="file" id="imageInput" accept="image/*" style="display:none;" onchange="handleImageUpload(event)"><div style="display:flex;gap:6px;margin-top:8px;"><button style="flex:1;background:var(--btn-fill);border:0.5px solid var(--ridge);padding:6px;border-radius:4px;font-size:12px;cursor:pointer;" onclick="document.getElementById('imageInput').click()">Change</button><button style="flex:1;background:var(--btn-fill);border:0.5px solid var(--ridge);padding:6px;border-radius:4px;font-size:12px;cursor:pointer;" onclick="clearImage()">Remove</button></div></div><div class="form-col"><h2 id="modalTitle">New Project</h2><div class="field"><label>TITLE <span class="req">*</span></label><input type="text" id="fTitle" placeholder="e.g. Lynx in the Forest"></div><div class="field"><label>LINKED PROJECT</label><input type="text" id="fLinked" placeholder="e.g. Lynx"></div><div class="field"><label>TYPE</label><div class="type-choices" id="mediumChoices"></div></div><div class="field"><label>CATEGORY</label><div class="type-choices" id="catChoices"></div></div><div class="field"><label>STATUS</label><div class="status-row" id="statusChoices"></div></div><div class="two-col"><div class="field"><label>LOCATION <span class="req">*</span></label><input type="text" id="fLocation" placeholder="e.g. Mavrovo"></div><div class="field"><label>GPS</label><input type="text" id="fGps" placeholder="41.9833, 20.7167"></div></div><div class="field"><label>DATE <span class="req">*</span></label><input type="date" id="fDue"></div><div class="field"><label>GEAR</label><div class="gear-picker" id="gearPicker"></div></div><div class="field"><label>NOTES <span class="req">*</span></label><textarea id="fNotes" placeholder="Your shooting plan..."></textarea></div><div class="modal-actions"><button class="btn-danger" id="deleteBtn" style="display:none;" onclick="deleteFromModal()">Delete</button><button class="btn-share" id="modalShareBtn" style="display:none;" onclick="shareProject(editingId)"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7 15.3 7.3"/><path d="M8.7 13.3 15.3 16.7"/></svg> Share</button><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveItem()">Save</button></div></div></div></div></div>
-<div class="overlay" id="gearOverlay" style="display:none;"><div class="modal small"><h2>New Gear</h2><div class="field"><label>TYPE</label><div class="type-choices" id="gearTypeChoices"></div></div><div class="field"><label>NAME</label><input type="text" id="gName" placeholder="e.g. Nikon Z6III"></div><div class="field"><label>SPECS</label><input type="text" id="gSpecs" placeholder="e.g. 180-600mm"></div><div class="field"><label>NOTE</label><input type="text" id="gNote" placeholder="e.g. main camera"></div><div class="modal-actions"><button class="btn-secondary" onclick="closeGearModal()">Cancel</button><button class="btn-primary" onclick="saveGear()">Save</button></div></div></div>
-<div class="overlay" id="catOverlay" style="display:none;"><div class="modal small"><h2>New Category</h2><div class="field"><label>NAME</label><input type="text" id="catNameInput" placeholder="e.g. Macro"></div><div class="field"><label>COLOR</label><input type="color" id="catColorInput" value="#A855F7" style="height:40px;"></div><div class="modal-actions"><button class="btn-secondary" onclick="closeCatModal()">Cancel</button><button class="btn-primary" onclick="saveCategory()">Save</button></div></div></div>
-<div class="overlay" id="notesOverlay" style="display:none;"><div class="modal small"><h2 id="notesPopupTitle">Notes</h2><div id="notesPopupBody" style="white-space:pre-wrap;max-height:50vh;overflow-y:auto;font-size:14px;"></div><div class="modal-actions"><button class="btn-secondary" onclick="closeNotesPopup()">Close</button></div></div></div>
+<!-- ===== BOTTOM BAR ===== -->
+<div class="bottom-bar" id="bottomBar" style="display:none;">
+  <button class="add-btn" onclick="openModal(null)">
+    <svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+    New Project
+  </button>
+</div>
 
 <!-- ===== FOOTER ===== -->
 <div class="footer-legal" id="footerLegal" style="display:none;">
@@ -454,6 +456,11 @@
     Unauthorized copying, reproduction, or distribution is strictly prohibited.
   </p>
 </div>
+
+<div class="overlay" id="overlay" style="display:none;"><div class="modal"><div class="detail-grid"><div class="image-col"><div class="image-drop" id="imageDrop" onclick="document.getElementById('imageInput').click()"><span>+ Add Image</span></div><input type="file" id="imageInput" accept="image/*" style="display:none;" onchange="handleImageUpload(event)"><div style="display:flex;gap:6px;margin-top:8px;"><button style="flex:1;background:var(--btn-fill);border:0.5px solid var(--ridge);padding:6px;border-radius:4px;font-size:12px;cursor:pointer;" onclick="document.getElementById('imageInput').click()">Change</button><button style="flex:1;background:var(--btn-fill);border:0.5px solid var(--ridge);padding:6px;border-radius:4px;font-size:12px;cursor:pointer;" onclick="clearImage()">Remove</button></div></div><div class="form-col"><h2 id="modalTitle">New Project</h2><div class="field"><label>TITLE <span class="req">*</span></label><input type="text" id="fTitle" placeholder="e.g. Lynx in the Forest"></div><div class="field"><label>LINKED PROJECT</label><input type="text" id="fLinked" placeholder="e.g. Lynx"></div><div class="field"><label>TYPE</label><div class="type-choices" id="mediumChoices"></div></div><div class="field"><label>CATEGORY</label><div class="type-choices" id="catChoices"></div></div><div class="field"><label>STATUS</label><div class="status-row" id="statusChoices"></div></div><div class="two-col"><div class="field"><label>LOCATION <span class="req">*</span></label><input type="text" id="fLocation" placeholder="e.g. Mavrovo"></div><div class="field"><label>GPS</label><input type="text" id="fGps" placeholder="41.9833, 20.7167"></div></div><div class="field"><label>DATE <span class="req">*</span></label><input type="date" id="fDue"></div><div class="field"><label>GEAR</label><div class="gear-picker" id="gearPicker"></div></div><div class="field"><label>NOTES <span class="req">*</span></label><textarea id="fNotes" placeholder="Your shooting plan..."></textarea></div><div class="modal-actions"><button class="btn-danger" id="deleteBtn" style="display:none;" onclick="deleteFromModal()">Delete</button><button class="btn-share" id="modalShareBtn" style="display:none;" onclick="shareProject(editingId)"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7 15.3 7.3"/><path d="M8.7 13.3 15.3 16.7"/></svg> Share</button><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveItem()">Save</button></div></div></div></div></div>
+<div class="overlay" id="gearOverlay" style="display:none;"><div class="modal small"><h2>New Gear</h2><div class="field"><label>TYPE</label><div class="type-choices" id="gearTypeChoices"></div></div><div class="field"><label>NAME</label><input type="text" id="gName" placeholder="e.g. Nikon Z6III"></div><div class="field"><label>SPECS</label><input type="text" id="gSpecs" placeholder="e.g. 180-600mm"></div><div class="field"><label>NOTE</label><input type="text" id="gNote" placeholder="e.g. main camera"></div><div class="modal-actions"><button class="btn-secondary" onclick="closeGearModal()">Cancel</button><button class="btn-primary" onclick="saveGear()">Save</button></div></div></div>
+<div class="overlay" id="catOverlay" style="display:none;"><div class="modal small"><h2>New Category</h2><div class="field"><label>NAME</label><input type="text" id="catNameInput" placeholder="e.g. Macro"></div><div class="field"><label>COLOR</label><input type="color" id="catColorInput" value="#A855F7" style="height:40px;"></div><div class="modal-actions"><button class="btn-secondary" onclick="closeCatModal()">Cancel</button><button class="btn-primary" onclick="saveCategory()">Save</button></div></div></div>
+<div class="overlay" id="notesOverlay" style="display:none;"><div class="modal small"><h2 id="notesPopupTitle">Notes</h2><div id="notesPopupBody" style="white-space:pre-wrap;max-height:50vh;overflow-y:auto;font-size:14px;"></div><div class="modal-actions"><button class="btn-secondary" onclick="closeNotesPopup()">Close</button></div></div></div>
 
 <!-- ===== TERMS OF USE OVERLAY ===== -->
 <div class="terms-overlay" id="termsOverlay">
