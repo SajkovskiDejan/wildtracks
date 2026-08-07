@@ -291,17 +291,6 @@
   .terms-body::-webkit-scrollbar-thumb{background:#a855f7;border-radius:2px;}
   .terms-body::-webkit-scrollbar-thumb:hover{background:#8b3fd4;}
   
-  /* ===== LOGIN EKRAN - CEKIRANJE ===== */
-  #authArea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100vh;
-    background: #101a2e;
-    flex-direction: column;
-  }
-  
   .user-chip {
     display: flex;
     align-items: center;
@@ -611,6 +600,13 @@ auth.onAuthStateChanged(async(u)=>{
     
     renderAll();
     renderDashboard();
+    
+    // ZATVORI DASHBOARD NAKON PRIJAVE
+    dashboardOpen = false;
+    document.getElementById('dashboardBody').classList.remove('open');
+    document.getElementById('dashArrow').classList.remove('open');
+    localStorage.setItem('wt-dashboard-open', 'false');
+    
   } else {
     isPro=false;
     userPlan='free';
@@ -913,6 +909,12 @@ function renderDashboard(){
   document.getElementById('dashUpcoming').innerHTML=up.length===0?'<div class="dash-empty">No upcoming shoots.</div>':up.map(i=>`<div class="upcoming-item" onclick="openModal('${i.id}')"><span class="upcoming-dot"></span><div class="upcoming-info"><div class="upcoming-title">${escapeHtml(i.title)}</div></div><span style="font-size:11px;">${formatDate(i.due)}</span></div>`).join('');
   
   document.getElementById('dashBadge').textContent = items.length;
+  
+  // Osigurava da je Dashboard zatvoren nakon render-a
+  if (!dashboardOpen) {
+    document.getElementById('dashboardBody').classList.remove('open');
+    document.getElementById('dashArrow').classList.remove('open');
+  }
 }
 
 // ============ RENDER ALL ============
@@ -991,18 +993,11 @@ document.getElementById('bioText').addEventListener('input',e=>{bio=e.target.val
 document.getElementById('profileNameInput').addEventListener('input',e=>{profileName=e.target.value||'Dejan';clearTimeout(nameSaveTimer);nameSaveTimer=setTimeout(()=>persistAll(),800);});
 
 // ============ INIT ============
-// Dashboard je zatvoren po default-u
-const savedState = localStorage.getItem('wt-dashboard-open');
-if (savedState === 'true') {
-  dashboardOpen = true;
-  document.getElementById('dashboardBody').classList.add('open');
-  document.getElementById('dashArrow').classList.add('open');
-} else {
-  dashboardOpen = false;
-  document.getElementById('dashboardBody').classList.remove('open');
-  document.getElementById('dashArrow').classList.remove('open');
-  localStorage.setItem('wt-dashboard-open', 'false');
-}
+// Dashboard je uvek zatvoren po default-u
+dashboardOpen = false;
+document.getElementById('dashboardBody').classList.remove('open');
+document.getElementById('dashArrow').classList.remove('open');
+localStorage.setItem('wt-dashboard-open', 'false');
 
 console.log('🐾 WildTracks loaded successfully!');
 </script>
