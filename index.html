@@ -304,35 +304,43 @@
     color: var(--paper);
   }
 
-  /* ===== EQUIPMENT TAB ===== */
-  .equipment-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
-  .equipment-header h2{color:#a855f7;font-size:22px;font-family:'Roboto',sans-serif;}
-  .equipment-stats{display:flex;gap:16px;flex-wrap:wrap;}
-  .equipment-stat{background:#121a2f;border:0.5px solid #a855f7;border-radius:4px;padding:8px 16px;text-align:center;}
-  .equipment-stat .num{font-size:20px;font-weight:900;color:#a855f7;}
-  .equipment-stat .label{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.05em;}
-  .equipment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;}
-  .equipment-card{background:#121a2f;border:0.5px solid #a855f7;border-radius:4px;padding:16px 18px;transition:all 0.2s;}
+  /* ===== EQUIPMENT ===== */
+  .equipment-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;}
+  .equipment-header h2{color:#a855f7;font-size:18px;font-family:'Roboto',sans-serif;margin:0;}
+  .equipment-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+  .equipment-stat{background:#121a2f;border:0.5px solid #a855f7;border-radius:4px;padding:6px 14px;text-align:center;}
+  .equipment-stat .num{font-size:18px;font-weight:900;color:#a855f7;}
+  .equipment-stat .label{font-size:9px;color:#888;text-transform:uppercase;letter-spacing:0.05em;}
+  .equipment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
+  .equipment-card{background:#121a2f;border:0.5px solid #a855f7;border-radius:4px;padding:14px 16px;transition:all 0.2s;}
   .equipment-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(168,85,247,0.15);}
   .equipment-card .top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
-  .equipment-card .name{font-size:16px;font-weight:700;color:#fff;font-family:'Roboto',sans-serif;}
-  .equipment-card .brand{font-size:12px;color:#a855f7;font-weight:600;}
-  .equipment-card .status-badge{font-size:10px;padding:3px 10px;border-radius:12px;font-weight:600;white-space:nowrap;}
+  .equipment-card .name{font-size:15px;font-weight:700;color:#fff;font-family:'Roboto',sans-serif;}
+  .equipment-card .brand{font-size:11px;color:#a855f7;font-weight:600;}
+  .equipment-card .status-badge{font-size:9px;padding:2px 8px;border-radius:10px;font-weight:600;white-space:nowrap;}
   .status-badge.available{background:#10b98120;color:#10b981;border:0.5px solid #10b981;}
   .status-badge.in_use{background:#f59e0b20;color:#f59e0b;border:0.5px solid #f59e0b;}
   .status-badge.in_repair{background:#ef444420;color:#ef4444;border:0.5px solid #ef4444;}
   .status-badge.broken{background:#dc262620;color:#dc2626;border:0.5px solid #dc2626;}
   .status-badge.lost{background:#6b728020;color:#6b7280;border:0.5px solid #6b7280;}
-  .equipment-card .details{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin:10px 0 8px;font-size:12px;color:#aaa;}
-  .equipment-card .details span{display:flex;align-items:center;gap:4px;}
-  .equipment-card .details .label{color:#666;font-size:10px;text-transform:uppercase;}
-  .equipment-card .actions{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
-  .equipment-card .actions button{background:var(--btn-fill);border:0.5px solid var(--ridge);color:var(--stone);padding:5px 12px;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Roboto',sans-serif;transition:all 0.15s;}
+  .equipment-card .details{display:grid;grid-template-columns:1fr 1fr;gap:2px 12px;margin:8px 0 6px;font-size:11px;color:#aaa;}
+  .equipment-card .details span{display:flex;align-items:center;gap:3px;}
+  .equipment-card .details .label{color:#666;font-size:9px;text-transform:uppercase;}
+  .equipment-card .actions{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap;}
+  .equipment-card .actions button{background:var(--btn-fill);border:0.5px solid var(--ridge);color:var(--stone);padding:4px 10px;border-radius:4px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Roboto',sans-serif;transition:all 0.15s;}
   .equipment-card .actions button:hover{background:var(--ember);border-color:var(--ember);color:#fff;}
   .equipment-card .actions button.primary{background:var(--ember);border-color:var(--ember);color:#fff;}
   .equipment-card .actions button.primary:hover{opacity:0.8;}
-  .equipment-card .condition-stars{color:#f59e0b;font-size:14px;letter-spacing:1px;}
-  .equipment-empty{color:var(--stone);font-size:14px;text-align:center;padding:40px;font-style:italic;grid-column:1/-1;}
+  .equipment-card .condition-stars{color:#f59e0b;font-size:12px;letter-spacing:0.5px;}
+  .equipment-empty{color:var(--stone);font-size:13px;text-align:center;padding:30px;font-style:italic;grid-column:1/-1;}
+
+  /* ===== GEAR SUB-NAV ===== */
+  .gear-sub-nav{display:flex;gap:4px;margin-bottom:14px;border-bottom:0.5px solid #a855f7;padding-bottom:8px;flex-wrap:wrap;}
+  .gear-sub-nav .gear-sub-tab{background:none;border:none;color:#888;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Roboto',sans-serif;border-bottom:2px solid transparent;transition:all 0.2s;border-radius:0;}
+  .gear-sub-nav .gear-sub-tab:hover{color:#fff;}
+  .gear-sub-nav .gear-sub-tab.active{color:#a855f7;border-bottom-color:#a855f7;}
+  .gear-sub-panel{display:none;}
+  .gear-sub-panel.active{display:block;}
 </style>
 </head>
 <body>
@@ -393,7 +401,6 @@
     <button class="tab-btn" data-tab="foto" onclick="switchTab('foto')">Photo Project</button>
     <button class="tab-btn" data-tab="avantura" onclick="switchTab('avantura')">Photo Adventure</button>
     <button class="tab-btn" data-tab="cameratrap" onclick="switchTab('cameratrap')">Camera Trap</button>
-    <button class="tab-btn" data-tab="equipment" onclick="switchTab('equipment')">📦 Equipment</button>
   </div>
 
   <div id="loadingMsg" class="loading-state">Loading WildTracks...</div>
@@ -432,31 +439,49 @@
   <div class="tab-panel" id="panel-avantura"><div id="alertZone-avantura"></div><div class="filter-group-label">CATEGORIES</div><div class="filters-row"><div class="filters" id="filters-avantura"></div></div><div class="view-toggle" id="viewToggle-avantura"></div><div class="board" id="board-avantura"></div></div>
   <div class="tab-panel" id="panel-cameratrap"><div id="alertZone-cameratrap"></div><div class="filter-group-label">CATEGORIES</div><div class="filters-row"><div class="filters" id="filters-cameratrap"></div></div><div class="view-toggle" id="viewToggle-cameratrap"></div><div class="board" id="board-cameratrap"></div></div>
 
-  <!-- ===== EQUIPMENT TAB ===== -->
-  <div class="tab-panel" id="panel-equipment">
-    <div class="equipment-header">
-      <h2>📦 Equipment Inventory</h2>
-      <div style="display:flex;gap:8px;align-items:center;">
+  <!-- ===== GEAR & PROFILE PANEL ===== -->
+  <div class="tab-panel" id="panel-gear">
+    <!-- Pod-navigacija -->
+    <div class="gear-sub-nav">
+      <button class="gear-sub-tab active" data-subtab="equipment" onclick="switchGearSubTab('equipment')">📦 Equipment</button>
+      <button class="gear-sub-tab" data-subtab="profile" onclick="switchGearSubTab('profile')">👤 Profile</button>
+      <button class="gear-sub-tab" data-subtab="checklist" onclick="switchGearSubTab('checklist')">✅ Checklist</button>
+      <button class="gear-sub-tab" data-subtab="categories" onclick="switchGearSubTab('categories')">🏷️ Categories</button>
+    </div>
+
+    <!-- Equipment sub-tab -->
+    <div class="gear-sub-panel active" id="subtab-equipment">
+      <div class="equipment-header">
+        <h2>📦 Equipment Inventory</h2>
         <button class="btn-secondary-sm active" onclick="openGearModal()" style="background:var(--ember);border-color:var(--ember);color:#fff;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
           Add Equipment
         </button>
       </div>
+      <div class="equipment-stats" id="equipmentStats"></div>
+      <div class="equipment-grid" id="equipmentGrid"></div>
     </div>
-    <div class="equipment-stats" id="equipmentStats"></div>
-    <div class="equipment-grid" id="equipmentGrid"></div>
-  </div>
 
-  <div class="tab-panel" id="panel-gear">
-    <div class="profile-box"><h3>About Me</h3><div class="field"><label>NAME</label><input type="text" id="profileNameInput"></div><textarea id="bioText" placeholder="About you..."></textarea><div class="save-note" style="font-size:11px;color:var(--stone);margin-top:6px;">Auto-saved</div></div>
-    <div class="profile-box"><h3>✅ Checklist — Field Gear</h3><div id="checklistContainer"></div><div class="checklist-summary" id="checklistSummary" style="font-size:12px;margin-top:8px;"></div><div style="display:flex;gap:8px;margin-top:10px;">
-      <button class="btn-secondary-sm" onclick="checkAllGear()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Check All</button>
-      <button class="btn-secondary-sm" onclick="uncheckAllGear()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Uncheck All</button>
-      <button class="btn-secondary-sm active" onclick="printChecklist()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg> Print</button>
-    </div></div>
-    <div class="profile-box"><h3>Custom Categories</h3><button class="btn-secondary-sm" onclick="openCatModal()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> ADD CATEGORY</button><div class="custom-cat-list" id="customCatList" style="margin-top:12px;"></div></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;"><h3>Gear</h3><button class="add-btn" style="padding:9px 16px;font-size:13.5px;" onclick="openGearModal()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> New Gear</button></div>
-    <div class="gear-grid" id="gearGrid"></div>
+    <!-- Profile sub-tab -->
+    <div class="gear-sub-panel" id="subtab-profile">
+      <div class="profile-box"><h3>About Me</h3><div class="field"><label>NAME</label><input type="text" id="profileNameInput"></div><textarea id="bioText" placeholder="About you..."></textarea><div class="save-note" style="font-size:11px;color:var(--stone);margin-top:6px;">Auto-saved</div></div>
+    </div>
+
+    <!-- Checklist sub-tab -->
+    <div class="gear-sub-panel" id="subtab-checklist">
+      <div class="profile-box"><h3>✅ Checklist — Field Gear</h3><div id="checklistContainer"></div><div class="checklist-summary" id="checklistSummary" style="font-size:12px;margin-top:8px;"></div><div style="display:flex;gap:8px;margin-top:10px;">
+        <button class="btn-secondary-sm" onclick="checkAllGear()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Check All</button>
+        <button class="btn-secondary-sm" onclick="uncheckAllGear()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Uncheck All</button>
+        <button class="btn-secondary-sm active" onclick="printChecklist()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg> Print</button>
+      </div></div>
+    </div>
+
+    <!-- Categories sub-tab -->
+    <div class="gear-sub-panel" id="subtab-categories">
+      <div class="profile-box"><h3>Custom Categories</h3><button class="btn-secondary-sm" onclick="openCatModal()"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> ADD CATEGORY</button><div class="custom-cat-list" id="customCatList" style="margin-top:12px;"></div></div>
+    </div>
+
+    <!-- Back to Dashboard -->
     <div class="gear-close-bar" style="display:flex;justify-content:flex-end;margin-top:20px;padding-top:16px;border-top:0.5px solid var(--ridge);">
       <button class="btn-secondary-sm active" onclick="switchTab('dashboard')"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Back to Dashboard</button>
     </div>
@@ -536,66 +561,29 @@ const MEDIUMS={video:{label:'Video Project',color:'#A855F7'},foto:{label:'Photo 
 const CATEGORIES={wildlife:{label:'Wildlife',color:'#3B0764'},landscape:{label:'Landscape',color:'#5B21B6'},night:{label:'Night / Milky Way',color:'#7C3AED'},city:{label:'City',color:'#9333EA'},people:{label:'People',color:'#A855F7'},home_animal:{label:'Domestic Animals',color:'#C084FC'},cameratrap:{label:'Camera Trap',color:'#D8B4FE'}};
 const STAGES=[{key:'ideja',label:'Idea'},{key:'snimljeno',label:'Shot'},{key:'montirano',label:'Edited'},{key:'objavljeno',label:'Published'}];
 const GEAR_TYPES={body:{label:'Body'},lens:{label:'Lens'},lighting:{label:'Lighting'},audio:{label:'Audio'},support:{label:'Support'},storage:{label:'Storage'},accessories:{label:'Accessories'},drone:{label:'Drone'},other:{label:'Other'}};
-const TABS=['video','foto','avantura','cameratrap','equipment'];const ACTIONS=[{key:'snimljeno',label:'Done Recording'},{key:'montirano',label:'Done Editing'},{key:'objavljeno',label:'Done Published'}];
+const TABS=['video','foto','avantura','cameratrap'];const ACTIONS=[{key:'snimljeno',label:'Done Recording'},{key:'montirano',label:'Done Editing'},{key:'objavljeno',label:'Done Published'}];
 let items=[],gear=[],bio='',profileName='Dejan',avatar=null,headerBg=null,customCategories={},gearCheckState={},sharedProjects={},notifiedShoots={};
 let activeFilter={video:'all',foto:'all',avantura:'all',cameratrap:'all'},activeView={video:'list',foto:'list',avantura:'list',cameratrap:'list'};
 let selectedMedium='video',selectedCategory='wildlife',selectedStatus='ideja',selectedGearType='body',selectedGearIds=[],editingId=null,currentImage=null,currentUser=null;
 let bioSaveTimer=null,nameSaveTimer=null;
-let mapInstance = null;
-let mapFocusProjectId = null;
+let mapInstance=null;let mapFocusProjectId=null;
+let currentGearSubTab='equipment';
 
 // ============ LICENSING SYSTEM ============
-const APP_MODE = 'dev';
-const FREE_LIMIT = 10;
-const ADMIN_EMAILS = ['sajkovskidejan@gmail.com','sanjaostrovo@gmail.com'];
-let isPro = false;let userPlan = 'free';
+const APP_MODE='dev';const FREE_LIMIT=10;const ADMIN_EMAILS=['sajkovskidejan@gmail.com','sanjaostrovo@gmail.com'];
+let isPro=false;let userPlan='free';
 
 function isAdmin(){if(!currentUser)return false;return ADMIN_EMAILS.includes(currentUser.email);}
-async function checkProLicense(){
-  const key=localStorage.getItem('wt-license');if(!key)return false;
-  try{const doc=await db.collection('licenses').doc(key).get();if(doc.exists&&doc.data().active){isPro=true;userPlan='pro';return true;}}catch(e){}
-  return false;
-}
-function canCreateProject(){
-  if(APP_MODE==='dev')return true;if(isAdmin())return true;if(isPro)return true;
-  if(!currentUser)return false;const userProjects=items.filter(i=>i.createdBy===currentUser.uid);
-  return userProjects.length<FREE_LIMIT;
-}
-function remainingProjects(){
-  if(APP_MODE==='dev')return 999;if(isAdmin())return 999;if(isPro)return 999;
-  if(!currentUser)return 0;const userProjects=items.filter(i=>i.createdBy===currentUser.uid);
-  return Math.max(0,FREE_LIMIT-userProjects.length);
-}
-function showUpgradePrompt(){
-  const remaining=remainingProjects();
-  if(remaining<=0){alert(`🎯 Free limit reached! You've used all ${FREE_LIMIT} projects.\n\n💎 Upgrade to WildTracks Pro:\n• Unlimited projects\n• Cloud sync & backup\n• Team collaboration\n• Custom categories\n\nPrice: $79 (one-time)\n\nGet your license at: wildtracks.com/upgrade`);}
-  else{alert(`📊 You have ${remaining} free project${remaining===1?'':'s'} left (${FREE_LIMIT} total).\n\n💎 Upgrade to Pro for unlimited projects!\n\n👉 wildtracks.com/upgrade`);}
-}
+async function checkProLicense(){const key=localStorage.getItem('wt-license');if(!key)return false;try{const doc=await db.collection('licenses').doc(key).get();if(doc.exists&&doc.data().active){isPro=true;userPlan='pro';return true;}}catch(e){}return false;}
+function canCreateProject(){if(APP_MODE==='dev')return true;if(isAdmin())return true;if(isPro)return true;if(!currentUser)return false;const userProjects=items.filter(i=>i.createdBy===currentUser.uid);return userProjects.length<FREE_LIMIT;}
+function remainingProjects(){if(APP_MODE==='dev')return 999;if(isAdmin())return 999;if(isPro)return 999;if(!currentUser)return 0;const userProjects=items.filter(i=>i.createdBy===currentUser.uid);return Math.max(0,FREE_LIMIT-userProjects.length);}
+function showUpgradePrompt(){const remaining=remainingProjects();if(remaining<=0){alert(`🎯 Free limit reached! You've used all ${FREE_LIMIT} projects.\n\n💎 Upgrade to WildTracks Pro:\n• Unlimited projects\n• Cloud sync & backup\n• Team collaboration\n• Custom categories\n\nPrice: $79 (one-time)\n\nGet your license at: wildtracks.com/upgrade`);}else{alert(`📊 You have ${remaining} free project${remaining===1?'':'s'} left (${FREE_LIMIT} total).\n\n💎 Upgrade to Pro for unlimited projects!\n\n👉 wildtracks.com/upgrade`);}}
 
 // ============ TERMS OF USE ============
-function checkTerms() {
-  const accepted = localStorage.getItem('wt-terms-accepted');
-  if (!accepted && currentUser) {
-    document.getElementById('termsOverlay').classList.add('active');
-  }
-}
-function acceptTerms() {
-  localStorage.setItem('wt-terms-accepted', 'true');
-  document.getElementById('termsOverlay').classList.remove('active');
-}
-function closeTerms() {
-  const accepted = localStorage.getItem('wt-terms-accepted');
-  if (!accepted) {
-    if (confirm('You must accept the Terms of Use to continue using WildTracks.\n\nDo you want to accept now?')) {
-      acceptTerms();
-    }
-  } else {
-    document.getElementById('termsOverlay').classList.remove('active');
-  }
-}
-function showTerms() {
-  document.getElementById('termsOverlay').classList.add('active');
-}
+function checkTerms(){const accepted=localStorage.getItem('wt-terms-accepted');if(!accepted&&currentUser){document.getElementById('termsOverlay').classList.add('active');}}
+function acceptTerms(){localStorage.setItem('wt-terms-accepted','true');document.getElementById('termsOverlay').classList.remove('active');}
+function closeTerms(){const accepted=localStorage.getItem('wt-terms-accepted');if(!accepted){if(confirm('You must accept the Terms of Use to continue using WildTracks.\n\nDo you want to accept now?')){acceptTerms();}}else{document.getElementById('termsOverlay').classList.remove('active');}}
+function showTerms(){document.getElementById('termsOverlay').classList.add('active');}
 
 // ============ AUTH ============
 auth.onAuthStateChanged(async(u)=>{
@@ -609,24 +597,23 @@ auth.onAuthStateChanged(async(u)=>{
     document.getElementById('bottomBar').style.display='flex';
     document.getElementById('footerLegal').style.display='block';
     document.querySelector('.dashboard-dropdown').style.display='block';
-    document.querySelectorAll('.tab-panel').forEach(p => p.style.display='');
+    document.querySelectorAll('.tab-panel').forEach(p=>p.style.display='');
     document.getElementById('loadingMsg').style.display='none';
     renderAll();
     renderDashboard();
     renderEquipment();
-    dashboardOpen = false;
-    const body = document.getElementById('dashboardBody');
-    const arrow = document.getElementById('dashArrow');
-    if (body) body.classList.remove('open');
-    if (arrow) arrow.classList.remove('open');
-  } else {
-    isPro=false;
-    userPlan='free';
+    dashboardOpen=false;
+    const body=document.getElementById('dashboardBody');
+    const arrow=document.getElementById('dashArrow');
+    if(body)body.classList.remove('open');
+    if(arrow)arrow.classList.remove('open');
+  }else{
+    isPro=false;userPlan='free';
     document.getElementById('mainApp').style.display='none';
     document.getElementById('bottomBar').style.display='none';
     document.getElementById('footerLegal').style.display='none';
     document.querySelector('.dashboard-dropdown').style.display='none';
-    document.querySelectorAll('.tab-panel').forEach(p => p.style.display='none');
+    document.querySelectorAll('.tab-panel').forEach(p=>p.style.display='none');
     document.getElementById('loadingMsg').style.display='none';
   }
 });
@@ -647,7 +634,7 @@ function updateAuthUI(){
     `;
     s.innerHTML='<span class="sync-dot online"></span> Cloud sync';
     loginArea.style.display='none';
-  } else {
+  }else{
     a.innerHTML='';
     s.innerHTML='';
     loginArea.style.display='flex';
@@ -667,23 +654,28 @@ async function signOut(){
   document.getElementById('bottomBar').style.display='none';
   document.getElementById('footerLegal').style.display='none';
   document.querySelector('.dashboard-dropdown').style.display='none';
-  document.querySelectorAll('.tab-panel').forEach(p => p.style.display='none');
+  document.querySelectorAll('.tab-panel').forEach(p=>p.style.display='none');
   updateAuthUI();
 }
 
 // ============ DASHBOARD TOGGLE ============
-let dashboardOpen = false;
-function toggleDashboard() {
-  dashboardOpen = !dashboardOpen;
-  const body = document.getElementById('dashboardBody');
-  const arrow = document.getElementById('dashArrow');
-  if (dashboardOpen) {
-    body.classList.add('open');
-    arrow.classList.add('open');
-  } else {
-    body.classList.remove('open');
-    arrow.classList.remove('open');
-  }
+let dashboardOpen=false;
+function toggleDashboard(){
+  dashboardOpen=!dashboardOpen;
+  const body=document.getElementById('dashboardBody');
+  const arrow=document.getElementById('dashArrow');
+  if(dashboardOpen){body.classList.add('open');arrow.classList.add('open');}
+  else{body.classList.remove('open');arrow.classList.remove('open');}
+}
+
+// ============ GEAR SUB-TABS ============
+function switchGearSubTab(tab){
+  currentGearSubTab=tab;
+  document.querySelectorAll('.gear-sub-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.gear-sub-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`.gear-sub-tab[data-subtab="${tab}"]`).classList.add('active');
+  document.getElementById(`subtab-${tab}`).classList.add('active');
+  if(tab==='equipment') renderEquipment();
 }
 
 // ============ STORAGE ============
@@ -699,53 +691,6 @@ function getAllCategories(){return{...CATEGORIES,...customCategories};}
 function createdDate(i){if(!i||!i.id)return'—';const ts=parseInt((i.id||'').split('-')[1]);if(isNaN(ts))return'—';return formatDate(new Date(ts).toISOString().slice(0,10));}
 function getStatusLabel(s){const labels={available:'Available',in_use:'In Use',in_repair:'In Repair',broken:'Broken',lost:'Lost'};return labels[s]||s;}
 function getConditionStars(c){return '⭐'.repeat(c)+'☆'.repeat(5-c);}
-
-// ============ IMAGE ============
-function handleImageUpload(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=new Image();img.onload=()=>{const c=document.createElement('canvas'),s=Math.min(1,800/img.width);c.width=img.width*s;c.height=img.height*s;c.getContext('2d').drawImage(img,0,0,c.width,c.height);currentImage=c.toDataURL('image/jpeg',0.7);renderImagePreview();};img.src=ev.target.result;};r.readAsDataURL(f);}
-function clearImage(){currentImage=null;renderImagePreview();}
-function renderImagePreview(){document.getElementById('imageDrop').innerHTML=currentImage?`<img src="${currentImage}">`:'<span>+ Add Image</span>';}
-function handleAvatarUpload(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=new Image();img.onload=()=>{const c=document.createElement('canvas'),s=Math.min(1,300/img.width);c.width=img.width*s;c.height=img.height*s;c.getContext('2d').drawImage(img,0,0,c.width,c.height);avatar=c.toDataURL('image/jpeg',0.75);renderAvatar();persistAll();};img.src=ev.target.result;};r.readAsDataURL(f);}
-function renderAvatar(){}
-function handleHeaderBgUpload(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=new Image();img.onload=()=>{const c=document.createElement('canvas'),s=Math.min(1,1200/img.width);c.width=img.width*s;c.height=img.height*s;c.getContext('2d').drawImage(img,0,0,c.width,c.height);headerBg=c.toDataURL('image/jpeg',0.75);applyHeaderBg();persistAll();};img.src=ev.target.result;};r.readAsDataURL(f);}
-function applyHeaderBg(){const el=document.querySelector('.profile-header');if(el){if(headerBg){el.classList.add('has-bg');el.style.backgroundImage=`url(${headerBg})`;}else{el.classList.remove('has-bg');el.style.backgroundImage='';}}}
-
-// ============ NAVIGATION ============
-function switchTab(tab){
-  if(tab==='dashboard'){
-    document.querySelectorAll('.dash-tab-btn').forEach(b=>b.classList.add('active'));
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.gear-nav-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-    document.getElementById('bottomBar').style.display='flex';
-    document.getElementById('panel-search').classList.remove('active');
-    renderDashboard();
-    return;
-  }
-  document.querySelectorAll('.dash-tab-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
-  document.querySelectorAll('.gear-nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  const panelId = tab === 'gear' ? 'panel-gear' : 'panel-'+tab;
-  document.getElementById(panelId).classList.add('active');
-  document.getElementById('bottomBar').style.display=tab==='gear'?'none':'flex';
-  if(TABS.includes(tab))selectedMedium=tab;
-  document.getElementById('panel-search').classList.remove('active');
-  if(tab==='equipment') renderEquipment();
-}
-
-// ============ SEARCH ============
-function handleGlobalSearch(q){
-  if(!q.trim()){clearGlobalSearch();return;}
-  document.getElementById('globalSearchClear').style.display='block';
-  const m=items.filter(i=>(i.title||'').toLowerCase().includes(q.toLowerCase())||(i.linkedProject||'').toLowerCase().includes(q.toLowerCase()));
-  document.querySelectorAll('.dash-tab-btn,.tab-btn,.gear-nav-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('panel-search').classList.add('active');
-  document.getElementById('bottomBar').style.display='flex';
-  document.getElementById('searchResultsLabel').textContent=`🔍 ${m.length} results for "${q}"`;
-  document.getElementById('board-search').innerHTML=m.length===0?'<div class="dash-empty">No results.</div>':m.map((i,idx)=>renderProjectGroup(i,idx)).join('');
-}
-function clearGlobalSearch(){document.getElementById('globalSearchInput').value='';document.getElementById('globalSearchClear').style.display='none';switchTab('dashboard');}
 
 // ============ EQUIPMENT ============
 function renderEquipment(){
@@ -814,15 +759,7 @@ async function deleteGear(id){
 function renderProjectGroup(item,idx){const ci=item.status==='ideja'?-1:ACTIONS.findIndex(a=>a.key===item.status);const badge=String(idx+1).padStart(2,'0'),isShared=sharedProjects[item.id];const btns=ACTIONS.map((a,i)=>`<button class="proj-action-btn ${i<=ci?'done-text':i===ci+1?'active':''}" onclick="event.stopPropagation();moveItem('${item.id}','${a.key}')">${a.label}</button>`).join('');const allCats=getAllCategories(),cat=allCats[item.category]||{label:item.category,color:'#888'},medium=MEDIUMS[item.medium]||{label:item.medium};const gn=(item.gearIds||[]).map(gid=>gear.find(g=>g.id===gid)).filter(Boolean);const imgHtml=item.image?`<div class="proj-image-block"><img src="${item.image}" alt=""></div>`:`<div class="proj-image-block"><div class="proj-image-placeholder">+ ADD<br>IMAGE</div></div>`;return`<div class="proj-group"><div class="proj-item">${badge?`<div class="proj-badge-wrap"><span class="proj-badge">${badge}</span></div>`:''}${isShared?'<span class="shared-badge">🔗 Shared</span>':''}<button class="proj-share-btn" onclick="event.stopPropagation();shareProject('${item.id}')" title="Share">${icon('share',18,'#101A2E')}</button><button class="proj-print-btn" onclick="event.stopPropagation();printProjectCard('${item.id}')" title="Print">${icon('print',18,'#101A2E')}</button><button class="proj-plus-btn" onclick="event.stopPropagation();openNotesPopup('${item.id}')" title="Notes">${icon('notes',18,'#101A2E')}</button><div class="proj-card-border"><div class="proj-card" onclick="openModal('${item.id}')"><div class="proj-header">${escapeHtml(medium.label).toUpperCase()}</div>${item.linkedProject?`<div class="linked-tag" onclick="event.stopPropagation();handleGlobalSearch('${escapeHtml(item.linkedProject).replace(/'/g,"&#39;")}')">🔗 ${escapeHtml(item.linkedProject)}</div>`:''}<div class="proj-divider"></div><div style="text-align:center;font-size:18px;font-weight:800;margin-bottom:12px;color:#404040;">${escapeHtml(item.title)}</div><div class="proj-info-row"><div class="proj-dates-col"><div class="date-block"><span class="date-label">Card:</span><span class="date-value">${createdDate(item)}</span></div><div class="date-block"><span class="date-label">Shooting:</span><span class="date-value">${item.due?formatDate(item.due):'—'}</span></div></div><div class="v-divider"></div><div class="proj-loc-col" onclick="event.stopPropagation();openProjectLocation('${item.id}')"><div class="loc-content">${icon('loc',22,'#404040')}<span class="proj-loc-label">LOCATION</span></div></div><div class="v-divider"></div>${imgHtml}</div><div class="proj-divider"></div>${gn.length?`<div class="card-gear">${gn.map(g=>`<span class="gear-chip">${escapeHtml(g.name)}</span>`).join('')}</div>`:''}${item.notes?`<div class="card-notes">${escapeHtml(item.notes)}</div>`:''}<div class="proj-actions">${btns}</div></div></div></div></div>`;}
 
 // ============ OPEN PROJECT LOCATION ============
-function openProjectLocation(id) {
-  const item = items.find(i => i.id === id);
-  if (!item) return;
-  if (item.gps && item.gps.trim()) {
-    openMapOverlay(id);
-  } else {
-    alert(`📍 ${escapeHtml(item.title)}\n\nNo GPS coordinates set.\nPlease add GPS in project edit.`);
-  }
-}
+function openProjectLocation(id){const item=items.find(i=>i.id===id);if(!item)return;if(item.gps&&item.gps.trim()){openMapOverlay(id);}else{alert(`📍 ${escapeHtml(item.title)}\n\nNo GPS coordinates set.\nPlease add GPS in project edit.`);}}
 
 // ============ DASHBOARD ============
 function renderDashboard(){
@@ -835,9 +772,9 @@ function renderDashboard(){
   const stc={};STAGES.forEach(s=>{stc[s.key]=items.filter(i=>i.status===s.key).length;});const maxSt=Math.max(1,...Object.values(stc));
   const pub=items.filter(i=>i.status==='objavljeno');let avg=0;if(pub.length>0){const td=pub.reduce((s,i)=>{const ts=parseInt((i.id||'').split('-')[1]);if(isNaN(ts))return s;return s+(Date.now()-ts)/86400000;},0);avg=Math.round(td/pub.length);}
   const remaining=remainingProjects();
-  let limitInfo = items.length;
+  let limitInfo=items.length;
   let notificationHtml='';
-  if(!isAdmin() && !isPro && APP_MODE!=='dev' && remaining===8){
+  if(!isAdmin()&&!isPro&&APP_MODE!=='dev'&&remaining===8){
     notificationHtml=`<div class="notification-banner" style="grid-column:1/-1;margin-top:4px;">⚠️ Imate tačno <strong>2 od 10</strong> projekata. Preporučujemo da dodate još projekata!</div>`;
   }
   document.getElementById('dashStats').innerHTML=notificationHtml+
@@ -850,17 +787,12 @@ function renderDashboard(){
   document.getElementById('dashAvgTime').innerHTML=pub.length===0?'<div class="dash-empty">No published projects yet.</div>':`<div style="font-size:26px;font-weight:900;color:var(--ember);">${avg} days</div>`;
   const up=items.filter(i=>i.due&&i.status!=='objavljeno').sort((a,b)=>a.due.localeCompare(b.due)).slice(0,5);
   document.getElementById('dashUpcoming').innerHTML=up.length===0?'<div class="dash-empty">No upcoming shoots.</div>':up.map(i=>`<div class="upcoming-item" onclick="openModal('${i.id}')"><span class="upcoming-dot"></span><div class="upcoming-info"><div class="upcoming-title">${escapeHtml(i.title)}</div></div><span style="font-size:11px;">${formatDate(i.due)}</span></div>`).join('');
-  document.getElementById('dashBadge').textContent = items.length;
-  if (!dashboardOpen) {
-    const body = document.getElementById('dashboardBody');
-    const arrow = document.getElementById('dashArrow');
-    if (body) body.classList.remove('open');
-    if (arrow) arrow.classList.remove('open');
-  }
+  document.getElementById('dashBadge').textContent=items.length;
+  if(!dashboardOpen){const body=document.getElementById('dashboardBody');const arrow=document.getElementById('dashArrow');if(body)body.classList.remove('open');if(arrow)arrow.classList.remove('open');}
 }
 
 // ============ RENDER ALL ============
-function renderAll(){TABS.forEach(t=>{if(t!=='equipment'){renderCatFilters(t);renderViewToggle(t);renderBoard(t);}});renderGear();renderCustomCatList();renderChecklist();}
+function renderAll(){TABS.forEach(t=>{renderCatFilters(t);renderViewToggle(t);renderBoard(t);});renderGear();renderCustomCatList();renderChecklist();}
 function renderBoard(tab){let v=items.filter(i=>i.medium===tab);if(activeFilter[tab]!=='all')v=v.filter(i=>i.category===activeFilter[tab]);const od=v.filter(i=>i.status!=='objavljeno'&&daysUntil(i.due)!==null&&daysUntil(i.due)<0);const az=document.getElementById('alertZone-'+tab);if(az)az.innerHTML=od.length?`<div class="alert-banner">⚠ ${od.length} overdue: ${od.map(i=>escapeHtml(i.title)).join(', ')}</div>`:'';document.getElementById('board-'+tab).innerHTML=v.length===0?'<div class="dash-empty">No projects.</div>':v.map((i,idx)=>renderProjectGroup(i,idx)).join('');}
 
 // ============ SHARE ============
@@ -882,7 +814,6 @@ async function saveItem(){const t=document.getElementById('fTitle').value.trim()
   const data={title:t,linkedProject:document.getElementById('fLinked').value.trim(),medium:selectedMedium,category:selectedCategory,location:l,gps:document.getElementById('fGps').value.trim(),due:d,gearIds:[...selectedGearIds],notes:n,status:selectedStatus,image:currentImage,createdBy:currentUser?currentUser.uid:'local',createdAt:new Date().toISOString()};
   if(editingId){const idx=items.findIndex(i=>i.id===editingId);if(idx>-1)items[idx]={...items[idx],...data};}else{items.push({id:'item-'+Date.now()+'-'+Math.random().toString(36).slice(2,7),...data});}
   closeModal();renderAll();renderDashboard();await persistAll();}
-  
 async function deleteFromModal(){if(!editingId)return;if(!confirm('Delete?'))return;items=items.filter(i=>i.id!==editingId);closeModal();renderAll();renderDashboard();await persistAll();}
 async function moveItem(id,ns){const it=items.find(i=>i.id===id);if(it){it.status=ns;renderAll();renderDashboard();await persistAll();}}
 
@@ -942,11 +873,11 @@ function initLeafletMap(){const container=document.getElementById('leafletMapCon
 function icon(name,size=16,color='#404040'){const icons={search:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,add:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>`,check:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`,close:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`,print:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>`,share:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7 15.3 7.3"/><path d="M8.7 13.3 15.3 16.7"/></svg>`,notes:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/><path d="M8 12h8"/><path d="M8 16h5"/></svg>`,loc:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 0-5.3 2.2-5.3 5 0 4 5.3 11 5.3 11s5.3-7 5.3-11c0-2.8-2.3-5-5.3-5Z"/><circle cx="12" cy="8" r="2"/></svg>`,trash:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>`,download:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14"/><path d="m7 12 5 5 5-5"/><path d="M5 21h14"/></svg>`,upload:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V7"/><path d="m7 12 5-5 5 5"/><path d="M5 3h14"/></svg>`,user:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>`,dashboard:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="4" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="11" width="7" height="10" rx="1"/></svg>`,uncheck:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>`,home:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,crown:`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4 6 2l3 6 3-6 3 6 3-6 4 2"/><path d="M2 20h20"/><path d="M4 14h16"/></svg>`};return icons[name]||'';}
 
 // ============ INIT ============
-dashboardOpen = false;
-const body = document.getElementById('dashboardBody');
-const arrow = document.getElementById('dashArrow');
-if (body) body.classList.remove('open');
-if (arrow) arrow.classList.remove('open');
+dashboardOpen=false;
+const body=document.getElementById('dashboardBody');
+const arrow=document.getElementById('dashArrow');
+if(body)body.classList.remove('open');
+if(arrow)arrow.classList.remove('open');
 localStorage.removeItem('wt-dashboard-open');
 console.log('🐾 WildTracks loaded successfully!');
 </script>
