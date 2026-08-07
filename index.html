@@ -18,7 +18,7 @@
   .mono{font-family:'Roboto',monospace;}
   h1,h2,h3{font-family:'Roboto',sans-serif;font-weight:700;margin:0;}
   button{font-family:'Roboto',sans-serif;cursor:pointer;}
-  .shell{max-width:1320px;margin:0 auto;padding:24px 20px 40px;}
+  .shell{max-width:1320px;margin:0 auto;padding:24px 20px 40px;display:block;}
   @media(max-width:480px){.shell{padding:16px 12px 30px;}.brand h1{font-size:24px;}.form-col{padding:18px;}.proj-actions{grid-template-columns:1fr;gap:8px;}.nav-bar{gap:6px;}.tab-btn{padding:9px 12px;font-size:12.5px;}}
 
   /* HEADER */
@@ -34,7 +34,8 @@
   .header-right-group{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
   .header-user-col{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
   .header-top-row{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
-  .auth-area{display:flex;align-items:center;gap:8px;}
+  .auth-area{display:flex;align-items:center;gap:8px;width:100%;justify-content:center;min-height:100vh;flex-direction:column;}
+  .auth-area .login-btn{margin:0 auto;}
   .login-btn{background:var(--ember);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
   .login-btn:hover{opacity:0.85;}
   .user-chip{display:flex;align-items:center;gap:8px;background:var(--btn-fill);border:1px solid var(--ridge);padding:4px 14px 4px 4px;border-radius:4px;font-weight:700;color:var(--paper);}
@@ -69,7 +70,7 @@
   .tab-panel{display:none;}.tab-panel.active{display:block;}
 
   /* ⭐ DROPDOWN DASHBOARD ⭐ */
-  .dashboard-dropdown{background:#a855f724;border:0.5px solid #a855f7;border-radius:4px;margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden;}
+  .dashboard-dropdown{background:#a855f724;border:0.5px solid #a855f7;border-radius:4px;margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden;display:block;}
   .dashboard-dropdown-header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;cursor:pointer;transition:background 0.2s,color 0.2s;user-select:none;border-radius:4px;}
   .dashboard-dropdown-header:hover{background:#a855f724;color:#e1cdff;}
   .dashboard-dropdown-header h2{font-size:15px;color:#a855f7;display:flex;align-items:center;gap:10px;font-family:'Roboto',sans-serif;}
@@ -235,7 +236,7 @@
   @media(max-width:600px){.map-modal .map-container{height:350px;}}
 
   /* ===== FOOTER - FIXED IZNAD BOTTOM BAR ===== */
-  .footer-legal{position:fixed;bottom:60px;left:0;right:0;text-align:center;padding:8px 20px;border-top:0.5px solid #a855f7;background:#101a2e;font-size:10px;color:#888;font-family:'Roboto',sans-serif;z-index:39;}
+  .footer-legal{position:fixed;bottom:60px;left:0;right:0;text-align:center;padding:8px 20px;border-top:0.5px solid #a855f7;background:#101a2e;font-size:10px;color:#888;font-family:'Roboto',sans-serif;z-index:39;display:block;}
   .footer-legal strong{color:#a855f7;}
   .footer-legal a{color:#a855f7;text-decoration:none;cursor:pointer;}
   .footer-legal a:hover{text-decoration:underline;opacity:0.8;}
@@ -267,11 +268,53 @@
   .terms-body::-webkit-scrollbar-track{background:#1a1a2e;}
   .terms-body::-webkit-scrollbar-thumb{background:#a855f7;border-radius:2px;}
   .terms-body::-webkit-scrollbar-thumb:hover{background:#8b3fd4;}
+  
+  /* ===== LOGIN EKRAN - CEKIRANJE ===== */
+  #authArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: #101a2e;
+    flex-direction: column;
+  }
+  
+  /* Kada je korisnik ulogovan, authArea je u header-u */
+  .auth-area-logged-in #authArea {
+    min-height: auto;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: transparent;
+  }
+  
+  .user-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--btn-fill);
+    border: 1px solid var(--ridge);
+    padding: 4px 14px 4px 4px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: var(--paper);
+  }
 </style>
 </head>
 <body>
 <div id="printArea"></div>
-<div class="shell">
+
+<!-- ===== LOGIN EKRAN (prikazuje se samo kada nije ulogovan) ===== -->
+<div id="authArea">
+  <button class="login-btn" onclick="signInWithGoogle()">
+    <svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+    Sign in with Google
+  </button>
+  <span class="sync-indicator" id="syncIndicator" style="margin-top:12px;"><span class="sync-dot offline"></span> Offline</span>
+</div>
+
+<!-- ===== GLAVNI SADRŽAJ (sakriven dok korisnik nije ulogovan) ===== -->
+<div class="shell" id="mainApp" style="display:none;">
   <div class="profile-header">
     <div class="brand">
       <div class="eyebrow">Silence of Nature</div>
@@ -282,10 +325,8 @@
     <div class="header-right-group">
       <div class="header-user-col">
         <div class="header-top-row">
-          <div class="auth-area" id="authArea">
-            <button class="login-btn" onclick="signInWithGoogle()"><svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg> Sign in with Google</button>
-          </div>
-          <span class="sync-indicator" id="syncIndicator"></span>
+          <div class="auth-area" id="authAreaLoggedIn"></div>
+          <span class="sync-indicator" id="syncIndicatorLoggedIn"></span>
         </div>
       </div>
       <div class="profile-group">
@@ -388,7 +429,7 @@
   </div>
 </div>
 
-<div class="bottom-bar"><button class="add-btn" onclick="openModal(null)"><svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> New Project</button></div>
+<div class="bottom-bar" id="bottomBar" style="display:none;"><button class="add-btn" onclick="openModal(null)"><svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg> New Project</button></div>
 
 <div class="overlay" id="overlay" style="display:none;"><div class="modal"><div class="detail-grid"><div class="image-col"><div class="image-drop" id="imageDrop" onclick="document.getElementById('imageInput').click()"><span>+ Add Image</span></div><input type="file" id="imageInput" accept="image/*" style="display:none;" onchange="handleImageUpload(event)"><div style="display:flex;gap:6px;margin-top:8px;"><button style="flex:1;background:var(--btn-fill);border:0.5px solid var(--ridge);padding:6px;border-radius:4px;font-size:12px;cursor:pointer;" onclick="document.getElementById('imageInput').click()">Change</button><button style="flex:1;background:var(--btn-fill);border:0.5px solid var(--ridge);padding:6px;border-radius:4px;font-size:12px;cursor:pointer;" onclick="clearImage()">Remove</button></div></div><div class="form-col"><h2 id="modalTitle">New Project</h2><div class="field"><label>TITLE <span class="req">*</span></label><input type="text" id="fTitle" placeholder="e.g. Lynx in the Forest"></div><div class="field"><label>LINKED PROJECT</label><input type="text" id="fLinked" placeholder="e.g. Lynx"></div><div class="field"><label>TYPE</label><div class="type-choices" id="mediumChoices"></div></div><div class="field"><label>CATEGORY</label><div class="type-choices" id="catChoices"></div></div><div class="field"><label>STATUS</label><div class="status-row" id="statusChoices"></div></div><div class="two-col"><div class="field"><label>LOCATION <span class="req">*</span></label><input type="text" id="fLocation" placeholder="e.g. Mavrovo"></div><div class="field"><label>GPS</label><input type="text" id="fGps" placeholder="41.9833, 20.7167"></div></div><div class="field"><label>DATE <span class="req">*</span></label><input type="date" id="fDue"></div><div class="field"><label>GEAR</label><div class="gear-picker" id="gearPicker"></div></div><div class="field"><label>NOTES <span class="req">*</span></label><textarea id="fNotes" placeholder="Your shooting plan..."></textarea></div><div class="modal-actions"><button class="btn-danger" id="deleteBtn" style="display:none;" onclick="deleteFromModal()">Delete</button><button class="btn-share" id="modalShareBtn" style="display:none;" onclick="shareProject(editingId)"><svg class="icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7 15.3 7.3"/><path d="M8.7 13.3 15.3 16.7"/></svg> Share</button><button class="btn-secondary" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="saveItem()">Save</button></div></div></div></div></div>
 <div class="overlay" id="gearOverlay" style="display:none;"><div class="modal small"><h2>New Gear</h2><div class="field"><label>TYPE</label><div class="type-choices" id="gearTypeChoices"></div></div><div class="field"><label>NAME</label><input type="text" id="gName" placeholder="e.g. Nikon Z6III"></div><div class="field"><label>SPECS</label><input type="text" id="gSpecs" placeholder="e.g. 180-600mm"></div><div class="field"><label>NOTE</label><input type="text" id="gNote" placeholder="e.g. main camera"></div><div class="modal-actions"><button class="btn-secondary" onclick="closeGearModal()">Cancel</button><button class="btn-primary" onclick="saveGear()">Save</button></div></div></div>
@@ -396,7 +437,7 @@
 <div class="overlay" id="notesOverlay" style="display:none;"><div class="modal small"><h2 id="notesPopupTitle">Notes</h2><div id="notesPopupBody" style="white-space:pre-wrap;max-height:50vh;overflow-y:auto;font-size:14px;"></div><div class="modal-actions"><button class="btn-secondary" onclick="closeNotesPopup()">Close</button></div></div></div>
 
 <!-- ===== FOOTER ===== -->
-<div class="footer-legal">
+<div class="footer-legal" id="footerLegal" style="display:none;">
   <p>
     © 2026 <strong>WildTracks</strong> — All Rights Reserved.
     <span class="footer-separator">|</span>
@@ -536,6 +577,92 @@ function showTerms() {
   document.getElementById('termsOverlay').classList.add('active');
 }
 
+// ============ AUTH ============
+auth.onAuthStateChanged(async(u)=>{
+  currentUser=u;
+  updateAuthUI();
+  
+  if(u){
+    await checkProLicense();
+    await loadAll();
+    checkTerms();
+    
+    // PRIKAŽI APLIKACIJU
+    document.getElementById('mainApp').style.display='block';
+    document.getElementById('bottomBar').style.display='flex';
+    document.getElementById('footerLegal').style.display='block';
+    document.querySelector('.dashboard-dropdown').style.display='block';
+    document.querySelectorAll('.tab-panel').forEach(p => p.style.display='');
+    document.getElementById('loadingMsg').style.display='none';
+    
+    renderAll();
+    renderDashboard();
+  } else {
+    isPro=false;
+    userPlan='free';
+    
+    // SAKRIJ APLIKACIJU
+    document.getElementById('mainApp').style.display='none';
+    document.getElementById('bottomBar').style.display='none';
+    document.getElementById('footerLegal').style.display='none';
+    document.querySelector('.dashboard-dropdown').style.display='none';
+    document.querySelectorAll('.tab-panel').forEach(p => p.style.display='none');
+    document.getElementById('loadingMsg').style.display='none';
+  }
+});
+
+function updateAuthUI(){
+  const a=document.getElementById('authAreaLoggedIn');
+  const s=document.getElementById('syncIndicatorLoggedIn');
+  const loginArea=document.getElementById('authArea');
+  
+  if(currentUser){
+    const roleBadge=isAdmin()?'👑 Admin':isPro?'💎 Pro':'🆓 Free';
+    a.innerHTML=`
+      <div class="user-chip">
+        <img src="${currentUser.photoURL||''}" alt="">
+        <span class="uname">${currentUser.displayName||currentUser.email||'User'}</span>
+      </div>
+      <span style="font-size:10px;color:var(--stone);">${roleBadge}</span>
+      <button class="signout-btn" onclick="signOut()">Sign out</button>
+    `;
+    s.innerHTML='<span class="sync-dot online"></span> Cloud sync';
+    loginArea.style.display='none';
+  } else {
+    a.innerHTML='';
+    s.innerHTML='';
+    loginArea.style.display='flex';
+  }
+}
+
+async function signInWithGoogle(){try{await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());}catch(e){alert('Sign in failed: '+e.message);}}
+
+async function signOut(){
+  await auth.signOut();
+  items=[];
+  gear=[];
+  isPro=false;
+  userPlan='free';
+  currentUser=null;
+  
+  localStorage.removeItem('wt-items');
+  localStorage.removeItem('wt-gear');
+  localStorage.removeItem('wt-cats');
+  localStorage.removeItem('wt-check');
+  localStorage.removeItem('wt-shared');
+  localStorage.removeItem('wt-notified');
+  localStorage.removeItem('wt-terms-accepted');
+  
+  document.getElementById('loadingMsg').style.display='none';
+  document.getElementById('mainApp').style.display='none';
+  document.getElementById('bottomBar').style.display='none';
+  document.getElementById('footerLegal').style.display='none';
+  document.querySelector('.dashboard-dropdown').style.display='none';
+  document.querySelectorAll('.tab-panel').forEach(p => p.style.display='none');
+  
+  updateAuthUI();
+}
+
 // ============ DASHBOARD TOGGLE ============
 let dashboardOpen = false;
 
@@ -668,21 +795,6 @@ function icon(name,size=16,color='#404040'){
   return icons[name]||'';
 }
 
-// ============ AUTH ============
-auth.onAuthStateChanged(async(u)=>{currentUser=u;updateAuthUI();if(u){await checkProLicense();await loadAll();checkTerms();}else{isPro=false;userPlan='free';await loadAllLocal();renderAll();renderDashboard();}});
-function updateAuthUI(){const a=document.getElementById('authArea'),s=document.getElementById('syncIndicator');
-  if(currentUser){
-    const roleBadge=isAdmin()?'👑 Admin':isPro?'💎 Pro':'🆓 Free';
-    a.innerHTML=`<div class="user-chip"><img src="${currentUser.photoURL||''}" alt=""><span class="uname">${currentUser.displayName||currentUser.email||'User'}</span></div><span style="font-size:10px;color:var(--stone);">${roleBadge}</span><button class="signout-btn" onclick="signOut()">Sign out</button>`;
-    s.innerHTML='<span class="sync-dot online"></span> Cloud sync';
-  }else{
-    a.innerHTML='<button class="login-btn" onclick="signInWithGoogle()">'+icon('user',16,'#fff')+' Sign in with Google</button>';
-    s.innerHTML='<span class="sync-dot offline"></span> Offline';
-  }
-}
-async function signInWithGoogle(){try{await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());}catch(e){alert('Sign in failed: '+e.message);}}
-async function signOut(){await auth.signOut();items=[];gear=[];isPro=false;userPlan='free';await loadAllLocal();renderAll();renderDashboard();}
-
 // ============ STORAGE ============
 async function loadAllLocal(){try{items=JSON.parse(localStorage.getItem('wt-items')||'[]');}catch(e){items=[];}try{const p=JSON.parse(localStorage.getItem('wt-gear')||'{}');gear=p.items||[];bio=p.bio||'';profileName=p.profileName||'Dejan';avatar=p.avatar||null;headerBg=p.headerBg||null;}catch(e){gear=[];}try{customCategories=JSON.parse(localStorage.getItem('wt-cats')||'{}');}catch(e){customCategories={};}try{gearCheckState=JSON.parse(localStorage.getItem('wt-check')||'{}');}catch(e){gearCheckState={};}try{sharedProjects=JSON.parse(localStorage.getItem('wt-shared')||'{}');}catch(e){sharedProjects={};}try{notifiedShoots=JSON.parse(localStorage.getItem('wt-notified')||'{}');}catch(e){notifiedShoots={};}}
 async function persistAll(){localStorage.setItem('wt-items',JSON.stringify(items));localStorage.setItem('wt-gear',JSON.stringify({items:gear,bio,profileName,avatar,headerBg}));localStorage.setItem('wt-cats',JSON.stringify(customCategories));localStorage.setItem('wt-check',JSON.stringify(gearCheckState));localStorage.setItem('wt-shared',JSON.stringify(sharedProjects));localStorage.setItem('wt-notified',JSON.stringify(notifiedShoots));if(currentUser){await db.collection('users').doc(currentUser.uid).collection('data').doc('main').set({items,gear,bio,profileName,avatar,headerBg,customCategories,gearCheckState,_sender:currentUser.uid,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});}}
@@ -711,7 +823,7 @@ function switchTab(tab){
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
     document.querySelectorAll('.gear-nav-btn').forEach(b=>b.classList.remove('active'));
     document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-    document.querySelector('.bottom-bar').style.display='flex';
+    document.getElementById('bottomBar').style.display='flex';
     document.getElementById('panel-search').classList.remove('active');
     return;
   }
@@ -721,7 +833,7 @@ function switchTab(tab){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   const panelId = tab === 'gear' ? 'panel-gear' : 'panel-'+tab;
   document.getElementById(panelId).classList.add('active');
-  document.querySelector('.bottom-bar').style.display=tab==='gear'?'none':'flex';
+  document.getElementById('bottomBar').style.display=tab==='gear'?'none':'flex';
   if(TABS.includes(tab))selectedMedium=tab;
   document.getElementById('panel-search').classList.remove('active');
 }
@@ -734,7 +846,7 @@ function handleGlobalSearch(q){
   document.querySelectorAll('.dash-tab-btn,.tab-btn,.gear-nav-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-search').classList.add('active');
-  document.querySelector('.bottom-bar').style.display='flex';
+  document.getElementById('bottomBar').style.display='flex';
   document.getElementById('searchResultsLabel').textContent=`🔍 ${m.length} results for "${q}"`;
   document.getElementById('board-search').innerHTML=m.length===0?'<div class="dash-empty">No results.</div>':m.map((i,idx)=>renderProjectGroup(i,idx)).join('');
 }
