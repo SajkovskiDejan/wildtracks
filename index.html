@@ -34,8 +34,30 @@
   .header-right-group{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
   .header-user-col{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
   .header-top-row{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
-  .auth-area{display:flex;align-items:center;gap:8px;width:100%;justify-content:center;min-height:100vh;flex-direction:column;}
-  .auth-area .login-btn{margin:0 auto;}
+  
+  /* ===== AUTH - LOGIN EKRAN ===== */
+  #authArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: #101a2e;
+    flex-direction: column;
+  }
+  #authArea .login-btn{margin:0 auto;}
+  
+  /* ===== AUTH - U HEADER-U (kada je ulogovan) ===== */
+  .auth-area-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-direction: row;
+    justify-content: flex-end;
+    min-height: auto;
+    width: auto;
+  }
+  
   .login-btn{background:var(--ember);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
   .login-btn:hover{opacity:0.85;}
   .user-chip{display:flex;align-items:center;gap:8px;background:var(--btn-fill);border:1px solid var(--ridge);padding:4px 14px 4px 4px;border-radius:4px;font-weight:700;color:var(--paper);}
@@ -280,14 +302,6 @@
     flex-direction: column;
   }
   
-  /* Kada je korisnik ulogovan, authArea je u header-u */
-  .auth-area-logged-in #authArea {
-    min-height: auto;
-    flex-direction: row;
-    justify-content: flex-end;
-    background: transparent;
-  }
-  
   .user-chip {
     display: flex;
     align-items: center;
@@ -325,7 +339,7 @@
     <div class="header-right-group">
       <div class="header-user-col">
         <div class="header-top-row">
-          <div class="auth-area" id="authAreaLoggedIn"></div>
+          <div class="auth-area-header" id="authAreaLoggedIn"></div>
           <span class="sync-indicator" id="syncIndicatorLoggedIn"></span>
         </div>
       </div>
