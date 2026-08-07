@@ -14,7 +14,7 @@
 <style>
   :root{--bg-deep:#f3eee2;--bg-panel:#ffffff;--bg-card:#ffffff;--page-bg:#101A2E;--ridge:#e3dac6;--ridge-soft:#eee7d8;--stone:#8c8573;--paper:#2b2a22;--ember:#A855F7;--ice:#5f8583;--gold:#b8901f;--wine:#8a5568;--violet:#6a5a9c;--moss:#6d8a52;--rust:#a35f2f;--slate-teal:#4f7371;--mustard:#a17e1f;--plum:#6b4a5a;--steel:#54677a;--alert:#b04630;--btn-fill:#f4efe2;--shadow:0 1px 3px rgba(60,50,30,0.08);}
   *{box-sizing:border-box;}
-   body{margin:0;background:var(--page-bg);color:#ffffff;font-family:'Roboto',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;font-size:15px;padding-bottom:120px;}
+   body{margin:0;background:var(--page-bg);color:#ffffff;font-family:'Roboto',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;font-size:15px;padding-bottom:100px;}
   .mono{font-family:'Roboto',monospace;}
   h1,h2,h3{font-family:'Roboto',sans-serif;font-weight:700;margin:0;}
   button{font-family:'Roboto',sans-serif;cursor:pointer;}
@@ -235,17 +235,20 @@
   @media(max-width:600px){.map-modal .map-container{height:350px;}}
 
   /* ===== FOOTER ===== */
-  /* ===== FOOTER - NA DNU STRANICE ===== */
+  /* ===== FOOTER - FIXED IZNAD BOTTOM BAR ===== */
 .footer-legal {
+  position: fixed;
+  bottom: 60px;  /* Visina bottom bara */
+  left: 0;
+  right: 0;
   text-align: center;
-  padding: 16px 20px;
+  padding: 8px 20px;
   border-top: 0.5px solid #a855f7;
   background: #101a2e;
-  font-size: 11px;
+  font-size: 10px;
   color: #888;
   font-family: 'Roboto', sans-serif;
-  margin-top: 30px;
-  width: 100%;
+  z-index: 39;  /* Ispod bottom bara (z-index: 40) */
 }
 
 .footer-legal strong {
@@ -265,14 +268,14 @@
 
 .footer-separator {
   display: inline-block;
-  margin: 0 6px;
+  margin: 0 4px;
   color: #555;
 }
 
 .footer-note {
-  font-size: 9px;
+  font-size: 8px;
   color: #666;
-  margin-top: 2px;
+  margin-top: 1px;
   opacity: 0.6;
   font-family: 'Roboto', sans-serif;
 }
